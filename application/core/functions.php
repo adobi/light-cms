@@ -20,5 +20,9 @@ function dump($var, $label = null, $echo = true)
 		return $output;
 }
 
+function now()
+{
+    return date('Y-m-d H:i:s');
+}
 
 ?>

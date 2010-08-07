@@ -89,6 +89,9 @@
         public function fetchAll() 
         {
             //$this->_connect();
+            /*
+                TODO ORDER BY
+            */
             
             $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY ' . $this->_primary . ' DESC';
             

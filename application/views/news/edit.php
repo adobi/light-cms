@@ -1,28 +1,39 @@
 
-    <form action="<?= BASE_URL ?>edit/<?php echo $param ?>" method="post" accept-charset="utf-8" id = "login-form">
+    <?php echo Display::errors($errors); ?>
+
+    <form action="<?= BASE_URL ?>news/edit/<?php echo $param ?>" method="post" accept-charset="utf-8" id = "edit-form">
         
         <fieldset>
-            <legend>Hírek</legend>
+            <legend><?php echo $buzz ? 'Hír szerkesztése' : 'Hír felvitele' ?></legend>
             
             <p>
-                <label for = "username">Hír címe:</label>
-                <input type="text" name="title" value="" id="title" size = "30" class = "required" />
+                <label for = "username">Cím:</label>
+                <input type="text" name="title" id="title" size = "95" class = "required" value = "<?php echo ($buzz) ? htmlspecialchars_decode($buzz['title']) : '' ?>"/>
                 <span class = "error-msg"></span>
             </p>
+            <!--
             <p>
                 <label for = "url">Url:</label>
                 <input type="text" name="url" value="" id="url" size = "30" class = "required" />
                 <span class = "error-msg"></span>
-            </p>            
+            </p>
+            -->            
             <p>
                 <label for = "content">Tartalom:</label>
-                <input type="text" name="content" value="" id="content" size = "30" class = "required" />
+                <textarea name="content" rows="10" cols="72" id = "wysiwyg" class = "required"><?php echo ($buzz) ? htmlspecialchars_decode($buzz['content']) : ''; ?></textarea>
                 <span class = "error-msg"></span>
             </p>             
         </fieldset>
         
         <fieldset>
-            <input type="submit" value="Login" />
+            <input type="submit" value="Mentés" />
         </fieldset>
     
     </form>
+    
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $('#wysiwyg').wysiwyg();
+
+        });
+    </script>

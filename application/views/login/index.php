@@ -1,18 +1,7 @@
 
     <p><a href = "<?= BASE_URL ?>">Go back</a></p>
-
-    <?php if(!empty($errors)) : ?>
-        <div id="errors">
     
-            <?php foreach($errors as $error) : ?>
-                
-                <p><?= $error ?></p>
-                
-            <?php endforeach; ?>
-            
-        </div>
-        
-    <?php endif; ?>
+    <?php echo Display::errors($errors); ?>
 
     <form action="<?= BASE_URL ?>login" method="post" accept-charset="utf-8" id = "login-form">
         

@@ -1,10 +1,36 @@
 (function() {
     
     App = {
+        URL: '',
+        UploadFiles: function(params) {
+			
+			var url = App.URL;
+			
+			
+			$('#fileInput').fileUpload ({
+				'uploader'  : App.URL+'img/uploader.swf',
+				'script'	: params.script,
+				'cancelImg' : App.URL+'img/cancel.png',
+				'folder'    : params.folder,
+				'multi'     : params.multi,
+				'buttonText': 'Csatol',
+				onComplete: function(event, queueId, fileObj, response, data) {
+				    
+				    var form = $('#edit-form')
+				        input = $('<input></input>', {'type': 'hidden', 'name': 'filenames[]', 'value': response}),
+				        uploaded = $('#uploaded-files');
+				    
+				    form.append(input);
+				    //uploaded.append(fileObj.name);
+				    
+				    return true;
+				}
+			});				
+        },
         
         Validate: function() {
             
-            var forms = $('#product-form, #login-form');
+            var forms = $('#edit-form, #login-form');
             
             $.each(forms, function(idx, element) {
                 

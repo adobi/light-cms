@@ -8,9 +8,17 @@
 
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-		<link rel="stylesheet" href="<?= BASE_URL ?>css/page.css" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>css/page.css?v=<?= time(); ?>" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>css/jquery.wysiwyg.css" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>css/uploadify.css" />
+		
 		<script type="text/javascript" charset="utf-8" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src = "<?= BASE_URL ?>js/app.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery.wysiwyg.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery.uploadify.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?= BASE_URL ?>js/app.js?v=<?= time(); ?>"></script>
+		<script type="text/javascript" charset="utf-8">
+		    App.URL = '<?= BASE_URL ?>';
+		</script>
 	</head>
 	
 	<body>

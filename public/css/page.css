@@ -170,7 +170,12 @@ div#content {
     div#content input[type="text"]:focus, div#content input[type="password"]:focus, 
     div#content textarea:focus, div#content textarea:focus {
         border:1px solid #7F635F;
-    }    
+    } 
+    
+    form {
+        width:680px;
+    }
+       
     form input[type=submit] {border:0px; background: #222 url(../img/alert-overlay.png) repeat-x; display: inline-block;padding: 5px 10px 6px;color: #fff;text-decoration: none;font-weight: bold;line-height: 1;-moz-border-radius: 5px;-webkit-border-radius: 5px;-moz-box-shadow: 0 1px 3px #999;-webkit-box-shadow: 0 1px 3px #999;text-shadow: 0 -1px 1px #222;border-bottom: 1px solid #222;position: relative;cursor: pointer;font-size: 14px;padding: 6px 12px 7px;}
     form input[type=submit]:hover { background-color: #111; color: #fff; }
     form input[type=submit]:active { top: 1px; }
@@ -184,73 +189,56 @@ div#content {
         color:red!important;
     }
     
-    div#content .price, div#content .list-price {
-        
-    }
-    div#content .price {
-        text-decoration:line-through;color:#666;
-        font-size:11px;
-    }
-    
-    div#content .list-price {
-        font-weight:bold;
-        font-size:12px;
-    }
-    
-    div#content table.list {
-		width: 680px;
-		margin:10px;
-		cursor:text;
-		border:1px solid #ddd;
+		
+	div#content .add-icon {
+	    height:20px;
+	    display:inline-block;
+	    background: url(../img/icons.png) no-repeat scroll 0 0 transparent;
+	    padding-left:25px;
+	    font-size:12px;
 	}
-		div#content table.list a {
-			padding:3px;
-		}
-		div#content table.list thead td{
-			padding:5px;
-			border-bottom:1px solid #ccc;
-			font-weight:bold;
-			background:#D2D2D4;
-		}
-		
-		div#content table.list tbody td {
-			padding:5px;
-			vertical-align:middle;
-		    border-top:1px solid #ddd;			
-		}
-		
-		div#content table.list tbody tr:nth-child(2n+1){
-			background:#eee;
+	div#content .delete-icon {
+	    height:20px;
+	    display:inline-block;
+	    background: url(../img/icons.png) no-repeat scroll 0 -100px transparent;
+	    padding-left:25px;
+	    font-size:12px;
+	}
 
-		}
-		
-		div#content table.list .center {
-			text-align:center;
-		}
-		
-		div#content table.list .description {
-		    width:60%;
-		}
-		div#content table.list .action {
-		    width:70px;
-		}
-		div#content img {
-		    float:left;
-		    border: 2px solid #aaa;
-		    -moz-border-radius:3px;
-		    -webkit-border-radius:3px;
-		    padding:2px;
-		}
-		
-		div#content .add-icon {
-		    height:20px;
-		    display:inline-block;
-		    background: url(../img/icons.png) no-repeat scroll 0 0 transparent;
-		    padding-left:25px;
-		    font-size:12px;
-		}
+	div#content .view-icon {
+	    height:20px;
+	    display:inline-block;
+	    background: url(../img/icons.png) no-repeat scroll 0 -150px transparent;
+	    padding-left:25px;
+	    font-size:12px;
+	}	
 
+	
+    div#content .buzz-list {
+        width:660px;
+        border:0px solid #ddd;
+        padding:0px;
+        margin-top:10px;
+    }
+    div#content .buzz {
+        border:1px solid #ddd;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+        padding:5px;
+        margin-bottom:10px;
+    }
+    
+    div#content .buzz-title {
+        font-size:14px;
+        font-weight:bold;
+        padding: 5px;
+        background:#efefef;
+        border-bottom:1px solid #ddd;
+    }
 
+    div#content .buzz-content {
+        color:#777;
+    }
 .right {
     float:right!important;
 }
@@ -269,7 +257,7 @@ div#errors {
     color: #111;
     font-weight:bold;
     padding:10px;
-    width:90%;
+    width:680px;
 }
 
 div#footer {

@@ -6,15 +6,11 @@
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
 
+    //$_SESSION['uploads'] = array();
+
     require_once 'config.php';
     require_once 'config/autoload.php';
-    //require_once 'config/database.php';
-    //require_once 'config/fileupload.php';
-	//require_once 'utils/Redirect.php';
 
-	//require_once '../core/DbTable.php';
-
-	//require_once 'helpers/Display.php';
 	
 	if (!empty($_autoloader)) {
 	    
@@ -24,32 +20,19 @@
             
             if (!$ai->isDot() && $ai->isDir() && $ai->getFilename() !== '' && in_array($ai->getFilename(), $_autoloader)) {
                 
-                //var_dump($ai->getFilename()); echo '<br />';
     	        $iterator = new DirectoryIterator(APPLICATION_PATH . DIRECTORY_SEPARATOR . $ai->getFilename() . DIRECTORY_SEPARATOR);
     	        
     	        foreach ($iterator as $file) {
     	            
     	            if (!$file->isDot() && $file->isFile() && $file->getFilename() !== 'autoload.php') {
-    	                //var_dump($file->getFilename());echo '<br />';
-    	                if ($file->getFilename() !== '')
-    	                    //var_dump($ai->getFilename() . '/' . $file->getFilename());
-    	                
+    	                if ($file->getFilename() !== '') {
+
     	                    require_once $ai->getFilename() . '/' . $file->getFilename();
-    	                
-    	                //echo '<br />';var_dump('_new file____________________________________________');echo '<br />';
+    	                }
     	            }
     	        }
             }
         }
-        //die;
-	    //foreach ($_autoloader as $directory) {
-	        
-	        /*
-	            TODO check if $direcotry exists
-	        */
-	        
-	        //var_dump('<br />_new dir____________________________________________<br />');
-	    //}
 	}
 
 	$flag = 0;
@@ -65,7 +48,7 @@
 	    
 	    if(empty($controller)) {
 	        
-	        require_once 'controllers/home.php';
+	        require_once 'controllers/login.php';
 	        $flag = 1;
 	    }
 	    else {
