@@ -1,4 +1,3 @@
-<?php //require_once '_header.php'; ?>
 
     <p><a href = "<?= BASE_URL ?>">Go back</a></p>
 
@@ -38,5 +37,3 @@
         </fieldset>
     
     </form>
-
-<?php //require_once '_footer.php'; ?>

@@ -1,1 +1,1 @@
-<h1>this is the admin index</h1>
+<a href = ""> go back</a>

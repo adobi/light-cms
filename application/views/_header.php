@@ -16,17 +16,16 @@
 	<body>
 		<div id="container">
 			
-			<div id = "header">
-				
-			</div> <!-- header -->
-			
+            <div id = "header">
+    		    <?php if(isset($_SESSION['UserId'])) : ?>
+                    <?php require_once '_admin_menu.php'; ?>
+    			<?php endif; ?>    
+			</div> <!-- header -->			
 			
 			<div id = "sidebar">
 		        <ul>
     			    <?php if(isset($_SESSION['UserId'])) : ?>
-			            <li>
-					        <a href = "<?= BASE_URL ?>logout">Logout</a>
-			            </li>
+
     			    <?php else : ?>
 			            <li>
 					        <a href = "<?= BASE_URL ?>login">Login</a>

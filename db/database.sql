@@ -2,8 +2,9 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+DROP SCHEMA IF EXISTS `invictushu` ;
 CREATE SCHEMA IF NOT EXISTS `invictushu` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `invictushu`;
+USE `invictushu` ;
 
 -- -----------------------------------------------------
 -- Table `invictushu`.`partners`
@@ -87,8 +88,7 @@ CREATE  TABLE IF NOT EXISTS `invictushu`.`types` (
   `name` VARCHAR(45) NULL ,
   `order` INT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `idx_types` () ,
-  INDEX `index3` (`name` ASC, `order` ASC) )
+  INDEX `idx_types` (`name` ASC, `order` ASC) )
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;
@@ -150,11 +150,12 @@ DROP TABLE IF EXISTS `invictushu`.`images` ;
 
 CREATE  TABLE IF NOT EXISTS `invictushu`.`images` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `path` VARCHAR(100) NULL ,
+  `img_path` VARCHAR(100) NULL ,
+  `thumb_path` VARCHAR(100) NULL ,
   `page_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_page` (`page_id` ASC) ,
-  INDEX `idx_images` (`path` ASC) ,
+  INDEX `idx_images` (`img_path` ASC) ,
   CONSTRAINT `fk_page`
     FOREIGN KEY (`page_id` )
     REFERENCES `invictushu`.`pages` (`id` )
@@ -197,6 +198,7 @@ CREATE  TABLE IF NOT EXISTS `invictushu`.`news` (
   `title` VARCHAR(45) NULL ,
   `content` TEXT NULL ,
   `url` VARCHAR(45) NULL ,
+  `created` TIMESTAMP NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `idx_news` (`title` ASC, `content` ASC, `url` ASC) )
 ENGINE = MyISAM
