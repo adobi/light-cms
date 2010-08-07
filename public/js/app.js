@@ -6,7 +6,7 @@
 			
 			var url = App.URL;
 			
-			
+			var folder = params.folder;
 			$('#fileInput').fileUpload ({
 				'uploader'  : App.URL+'img/uploader.swf',
 				'script'	: params.script,
@@ -20,8 +20,11 @@
 				        input = $('<input></input>', {'type': 'hidden', 'name': 'filenames[]', 'value': response}),
 				        uploaded = $('#uploaded-files');
 				    
+				    $('.file-upload').hide();
+				        
 				    form.append(input);
-				    //uploaded.append(fileObj.name);
+				    //alert(folder + response);
+				    uploaded.append($('<img></img>', {'src':params.folder + 'thumbs/' + response}));
 				    
 				    return true;
 				}

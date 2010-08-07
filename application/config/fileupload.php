@@ -1,6 +1,6 @@
 <?php
     defined('FOTO_UPLOAD_DIR') || define('FOTO_UPLOAD_DIR', 'uploads/');
-    defined('THUMB_UPLOAD_DIR') || define('THUMB_UPLOAD_DIR', 'uploads/thumbs/');
+    defined('THUMB_UPLOAD_DIR') || define('THUMB_UPLOAD_DIR', 'thumbs/');
     
     $validImageTypes = array('jpeg', 'jpg', 'png', 'gif');
     

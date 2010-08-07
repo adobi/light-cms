@@ -52,7 +52,7 @@
             
             if ($_POST) {
                 //dump($_POST); die;
-                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                if (!empty($_POST['name']) && !empty($_POST['url'])) {
                     
                     $data = array();
                     $data['name'] = htmlspecialchars(XSS::clear($_POST['name']));

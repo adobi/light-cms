@@ -6,34 +6,7 @@
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
 
-    //$_SESSION['uploads'] = array();
-
     require_once 'config.php';
-    require_once 'config/autoload.php';
-
-	
-	if (!empty($_autoloader)) {
-	    
-        $autoloaderIterator = new DirectoryIterator(APPLICATION_PATH);
-        
-        foreach ($autoloaderIterator as $ai) {
-            
-            if (!$ai->isDot() && $ai->isDir() && $ai->getFilename() !== '' && in_array($ai->getFilename(), $_autoloader)) {
-                
-    	        $iterator = new DirectoryIterator(APPLICATION_PATH . DIRECTORY_SEPARATOR . $ai->getFilename() . DIRECTORY_SEPARATOR);
-    	        
-    	        foreach ($iterator as $file) {
-    	            
-    	            if (!$file->isDot() && $file->isFile() && $file->getFilename() !== 'autoload.php') {
-    	                if ($file->getFilename() !== '') {
-
-    	                    require_once $ai->getFilename() . '/' . $file->getFilename();
-    	                }
-    	            }
-    	        }
-            }
-        }
-	}
 
 	$flag = 0;
 

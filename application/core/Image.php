@@ -1,6 +1,6 @@
 <?php  
 
-    class AppImage 
+    class Image 
     {
         
         private $_sourceFullPath;

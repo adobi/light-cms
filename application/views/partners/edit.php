@@ -20,11 +20,11 @@
             
             <p>
                 <label for = "logo">Logo:</label>
-                <input type="file" name="logo" id="fileInput" size = "10"/>
+                <input type="file" name="logo" id="fileInput" class = "file-upload" size = "10"/>
                 <span class = "error-msg"></span>
-                <a href="javascript:$('#fileInput').fileUploadStart();">Fájlok feltöltése</a> | <a href="javascript:$('#fileInput').fileUploadClearQueue();">Fájlok eltávolítása</a>            
+                <a class = "file-upload" href="javascript:$('#fileInput').fileUploadStart();">Fájl feltöltése</a> <a class = "file-upload" href="javascript:$('#fileInput').fileUploadClearQueue();">Fájl eltávolítása</a>            
             </p>             
-            <p id = "uploaded-files"></p>
+            <div id = "uploaded-files"></div>
         </fieldset>
         
         <fieldset>
@@ -36,7 +36,7 @@
     <script type="text/javascript" charset="utf-8">
         $(function() {
             App.UploadFiles({
-                "folder": "/invictushu/public/uploads/partners/",
+                "folder": "/invictushu/public/<?= FOTO_UPLOAD_DIR ?>partners/",
                 "script": "/invictushu/public/uploads/upload.php",
                 //"script": "/partners/upload/",
                 "multi": false

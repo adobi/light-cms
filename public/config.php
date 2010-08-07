@@ -31,6 +31,31 @@
 		}
 	}
 	
+    require_once 'config/autoload.php';
+	
+	if (!empty($_autoloader)) {
+	    
+        $autoloaderIterator = new DirectoryIterator(APPLICATION_PATH);
+        
+        foreach ($autoloaderIterator as $ai) {
+            
+            if (!$ai->isDot() && $ai->isDir() && $ai->getFilename() !== '' && in_array($ai->getFilename(), $_autoloader)) {
+                
+    	        $iterator = new DirectoryIterator(APPLICATION_PATH . DIRECTORY_SEPARATOR . $ai->getFilename() . DIRECTORY_SEPARATOR);
+    	        
+    	        foreach ($iterator as $file) {
+    	            
+    	            if (!$file->isDot() && $file->isFile() && $file->getFilename() !== 'autoload.php') {
+    	                if ($file->getFilename() !== '') {
+
+    	                    require_once $ai->getFilename() . '/' . $file->getFilename();
+    	                }
+    	            }
+    	        }
+            }
+        }
+	}	
+	
     $_app_info['params'] = array();
 	$_url = str_replace(_APP_MAIN_DIR, '', $_SERVER['REQUEST_URI']);
 	$_tmp = explode("?", $_url);
