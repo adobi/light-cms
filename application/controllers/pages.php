@@ -50,7 +50,7 @@
             
             if (is_numeric($param)) {
                 
-                $page = $news->find(intval($param));
+                $page = $pages->find(intval($param));
                 
                 if ($page) {
                     $pages->delete(intval($param));
