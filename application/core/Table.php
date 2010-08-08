@@ -93,8 +93,8 @@
                 TODO ORDER BY
             */
             
-            $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY ' . $this->_primary . ' DESC';
-            
+            $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY `' . $this->_primary . '` DESC';
+            //dump($sql); die;
             $stmt = $this->_connection->prepare($sql);
             
             $stmt->execute();
@@ -120,7 +120,7 @@
 			$sql = 'INSERT INTO ' . $this->_name . 
 				' (' . implode(', ', $cols) . ') ' .
 				' VALUES (' . implode(', ', $vals) . ' )';
-				
+			
 			$stmt = $this->_connection->prepare($sql);
 			$stmt->execute();
 			

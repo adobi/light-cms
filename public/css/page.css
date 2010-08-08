@@ -116,6 +116,7 @@ div#header {
         -moz-border-radius-bottomleft:5px;
         -webkit-border-bottom-right-radius:5px;
         -webkit-border-bottom-left-radius:5px;
+     
         
     }
     
@@ -217,13 +218,13 @@ div#content {
 	}	
 
 	
-    div#content .buzz-list {
+    div#content .buzz-list, .settings-list {
         width:660px;
         border:0px solid #ddd;
         padding:0px;
         margin-top:10px;
     }
-    div#content .buzz {
+    div#content .buzz, .settings-item {
         border:1px solid #ddd;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
@@ -231,7 +232,7 @@ div#content {
         margin-bottom:10px;
     }
     
-    div#content .buzz-title {
+    div#content .buzz-title, .settings-item-name {
         font-size:14px;
         font-weight:bold;
         padding: 5px;
@@ -239,7 +240,7 @@ div#content {
         border-bottom:1px solid #ddd;
     }
 
-    div#content .buzz-content {
+    div#content .buzz-content, .settings-item-value {
         color:#777;
     }
     
@@ -249,13 +250,16 @@ div#content {
     
     div#content .partner {
         float:left; width: 175px;
-        border:3px dotted #453A31;
-        border:3px dotted #453A31;
-        margin-left:10px;
+        /*border:3px dotted #453A31;*/
+        margin-left:20px;
+        margin-bottom:20px;
         padding:10px 10px 0 0;
-        background:#f0f0f0;
+        background:#f3f3f3;
         -moz-border-radius:8px;
-        -webkit-border-radius:8px;        
+        -webkit-border-radius:8px; 
+        -moz-box-shadow: 0 0 1em #777;
+        -webkit-box-shadow: 0 0 1em #777;
+        box-shadow: 0 0 1em #777;                  
     }
     
 	#uploaded-files img,  .partners-list img{

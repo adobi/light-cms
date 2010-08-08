@@ -2,9 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `invictushu` ;
 CREATE SCHEMA IF NOT EXISTS `invictushu` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `invictushu` ;
+USE `invictushu`;
 
 -- -----------------------------------------------------
 -- Table `invictushu`.`partners`
@@ -110,7 +109,7 @@ CREATE  TABLE IF NOT EXISTS `invictushu`.`games` (
   `order` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_type` (`type_id` ASC) ,
-  INDEX `idx_games` (`name` ASC, `logo` ASC, `released` ASC, `url` ASC, `order` ASC) ,
+  INDEX `idx_games` (`name` ASC, `logo` ASC, `released` ASC, `url` ASC) ,
   CONSTRAINT `fk_type`
     FOREIGN KEY (`type_id` )
     REFERENCES `invictushu`.`types` (`id` )
@@ -198,7 +197,6 @@ CREATE  TABLE IF NOT EXISTS `invictushu`.`news` (
   `title` VARCHAR(45) NULL ,
   `content` TEXT NULL ,
   `url` VARCHAR(45) NULL ,
-  `created` TIMESTAMP NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `idx_news` (`title` ASC, `content` ASC, `url` ASC) )
 ENGINE = MyISAM

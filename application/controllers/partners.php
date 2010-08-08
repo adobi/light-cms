@@ -78,13 +78,20 @@
             
             if (is_numeric($param)) {
                 
-                $buzz = $partners->find(intval($param));
+                $partner = $partners->find(intval($param));
                 
-                if ($buzz) {
+                if ($partner) {
+                    
+                    if ($partner['logo']) {
+                        //dump(_APP_MAIN_DIR  . '/' . FOTO_UPLOAD_DIR . 'partners/' . $partner['logo']); die;
+                        @unlink(FOTO_UPLOAD_DIR . 'partners/' . $partner['logo']);
+                        @unlink(FOTO_UPLOAD_DIR . 'partners/' . THUMB_UPLOAD_DIR . $partner['logo']);
+                    }
+                    
                     $partners->delete(intval($param));
                 }
                 
-                Redirect::to(BASE_URL . 'news');
+                Redirect::to(BASE_URL . 'partners');
             }
         
             break;

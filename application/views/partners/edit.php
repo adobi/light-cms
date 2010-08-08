@@ -36,8 +36,8 @@
     <script type="text/javascript" charset="utf-8">
         $(function() {
             App.UploadFiles({
-                "folder": "/invictushu/public/<?= FOTO_UPLOAD_DIR ?>partners/",
-                "script": "/invictushu/public/uploads/upload.php",
+                "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>partners/",
+                "script": "/invictus/invictus.hu/public/uploads/upload.php",
                 //"script": "/partners/upload/",
                 "multi": false
             });

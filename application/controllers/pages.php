@@ -2,22 +2,22 @@
 
     Check::session();
 
-    $news = new News();
+    $pages = new Pages();
     $errors = array();
-    
+
     switch($action) {
         
         case '':
-            $newsList = $news->fetchAll();
+            $pagesList = $pages->fetchAll();
             break;
         case 'edit':
         
-            $buzz = false;
+            $page = false;
             if ($param) {
                 
                 if (is_numeric($param)) {
                     
-                    $buzz = $news->find(intval($param));  
+                    $page = $pages->find(intval($param));  
                 } 
             }
             
@@ -31,15 +31,15 @@
                     $data['url'] = Sanitizer::sanitize_title_with_dashes($data['title']);
                     $data['created'] = now();
                     //dump($data); die;
-                    if ($buzz) {
+                    if ($page) {
                         
-                        $news->update($data, intval($param));
+                        $pages->update($data, intval($param));
                     } else {
                         
-                        $news->insert($data);                        
+                        $pages->insert($data);                        
                     }
                     
-                    Redirect::to(BASE_URL . 'news');
+                    Redirect::to(BASE_URL . 'pages');
                 } else {
                     $errors[] = 'Minden mező kitöltése kötelező';
                 }   
@@ -50,16 +50,18 @@
             
             if (is_numeric($param)) {
                 
-                $buzz = $news->find(intval($param));
+                $page = $news->find(intval($param));
                 
-                if ($buzz) {
-                    $news->delete(intval($param));
+                if ($page) {
+                    $pages->delete(intval($param));
                 }
                 
-                Redirect::to(BASE_URL . 'news');
+                Redirect::to(BASE_URL . 'pages');
             }
         
             break;
         default:
             Redirect::to(BASE_URL . '404');
     }
+
+?>

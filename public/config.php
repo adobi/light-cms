@@ -76,5 +76,5 @@
 	$action = (isset($_app_info['params'][1]) ? $_app_info['params'][1] : 0);
 	$param = (isset($_app_info['params'][2]) ? $_app_info['params'][2] : '');
     
-
+    date_default_timezone_set('Europe/Budapest');
 ?>

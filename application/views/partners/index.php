@@ -11,6 +11,7 @@
                              alt = "<?= $partner['name'] ?>" 
                              original-title = "<?= $partner['name'] ?>"/>
                     </a>
+                    <strong><?= $partner['name']; ?></strong>
                     <a href = "<?= BASE_URL ?>partners/delete/<?= $partner['id'] ?>" class = "delete-icon right">töröl</a>
                 </div>
             <?php endforeach; ?>
