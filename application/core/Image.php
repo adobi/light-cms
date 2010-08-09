@@ -34,10 +34,10 @@
         public function resize($newWidth, $newHeight) 
         {
 
-            if($this->_sourceHeight > $this->_sourceWidth) {
+            //if($this->_sourceHeight > $this->_sourceWidth) {
                 
-                $newWidth = $this->_sourceWidth;
-            }
+            //    $newWidth = $this->_sourceWidth;
+            //}
 
             if(function_exists('imagecreatetruecolor')) {
                 $create	= 'imagecreatetruecolor';
