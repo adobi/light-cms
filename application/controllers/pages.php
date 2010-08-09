@@ -11,7 +11,7 @@
             $pagesList = $pages->fetchAll();
             break;
         case 'edit':
-        
+         
             $page = false;
             if ($param) {
                 

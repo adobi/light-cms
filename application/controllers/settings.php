@@ -8,7 +8,7 @@
     switch($action) {
         
         case '':
-            
+             
             $allSettings = $settings->fetchAll();
             
             //dump($allSettings);
@@ -16,7 +16,13 @@
         case 'edit':
             
             if ($_POST) {
-                //dump(!empty($_POST['name']) && !empty($_POST['value'])); die;
+                
+                if ($_POST['id']) {
+                    
+                    echo json_encode(array('response'=>$settings->update(array($_POST['key']=>$_POST['value']), intval($_POST['id']))));
+                    exit;
+                }
+                
                 if (!empty($_POST['name']) && !empty($_POST['value'])) {
                     
                     $data = array();

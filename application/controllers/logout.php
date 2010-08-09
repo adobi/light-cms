@@ -6,5 +6,5 @@
                 
         Redirect::to(BASE_URL);
     }
-
+ 
 ?>

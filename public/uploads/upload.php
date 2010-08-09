@@ -37,7 +37,7 @@
 			if($attach != '') {
 				
 				//itt jon az h elvegezzuk a szukseges ab. muveleteket
-				echo $attach;
+				echo trim($attach);
 			}
 		}
 	}

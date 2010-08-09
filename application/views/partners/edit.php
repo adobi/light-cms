@@ -24,7 +24,7 @@
                 <span class = "error-msg"></span>
                 <a class = "file-upload" href="javascript:$('#fileInput').fileUploadStart();">Fájl feltöltése</a> <a class = "file-upload" href="javascript:$('#fileInput').fileUploadClearQueue();">Fájl eltávolítása</a>            
             </p>             
-            <div id = "uploaded-files"></div>
+            <div class = "uploaded-files"></div>
         </fieldset>
         
         <fieldset>
@@ -35,11 +35,12 @@
     
     <script type="text/javascript" charset="utf-8">
         $(function() {
-            App.UploadFiles({
+            App.UploadFiles($('#fileInput'), {
                 "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>partners/",
                 "script": "/invictus/invictus.hu/public/uploads/upload.php",
                 //"script": "/partners/upload/",
-                "multi": false
+                "multi": false,
+                "filenames": "filenames[]"
             });
 
         });

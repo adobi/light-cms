@@ -9,4 +9,4 @@
     defined('THUMB_WIDTH') || define('THUMB_WIDTH', 150);
     defined('THUMB_HEIGHT') || define('THUMB_HEIGHT', 113);
     
-?>
+?> 

@@ -9,7 +9,7 @@
         
         case '':
             $partnersList = $partners->fetchAll();
-            break;
+            break; 
         case 'upload':
             // bugos meg, egyenlore nem hasznaljuk
             /*

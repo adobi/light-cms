@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2010-08-08 19:11:16
+Date: 2010-08-09 15:53:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,11 +30,15 @@ CREATE TABLE `games` (
   PRIMARY KEY (`id`),
   KEY `fk_type` (`type_id`),
   KEY `idx_games` (`name`,`logo`,`released`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of games
 -- ----------------------------
+INSERT INTO `games` VALUES ('5', 'Level R', '2010.08.09_1281352661_12961_234666659553_671064553_4286921_8178007_s.jpg', 'alma', '2010-08-31 00:00:00', '3', 'level-r', '3');
+INSERT INTO `games` VALUES ('4', 'alma', '2010.08.09_1281352007_sprite-icons2.png', 'asd', '2010-08-31 00:00:00', '3', 'alma', '4');
+INSERT INTO `games` VALUES ('6', 'Heat Online', '2010.08.09_1281352693_37626_135812453117964_100000676310440_225278_5104195_s.jpg', 'asd', '2010-08-30 00:00:00', '3', 'heat-online', '1');
+INSERT INTO `games` VALUES ('7', 'froggy jump', '2010.08.09_1281361033_23274_118840491488257_28_n.jpg', 'alma a fa alatt', '2010-08-10 00:00:00', '3', 'froggy-jump', '2');
 
 -- ----------------------------
 -- Table structure for `images`
@@ -65,11 +69,18 @@ CREATE TABLE `menus` (
   `order` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_menus` (`name`,`url`,`order`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menus
 -- ----------------------------
+INSERT INTO `menus` VALUES ('2', 'játékok', 'jatekok', '3');
+INSERT INTO `menus` VALUES ('3', 'letöltés', 'letoltes', '1');
+INSERT INTO `menus` VALUES ('4', 'cég', 'ceg', '4');
+INSERT INTO `menus` VALUES ('5', 'kapcsolat', 'kapcsolat', '5');
+INSERT INTO `menus` VALUES ('6', 'partnerek', 'partnerek', '7');
+INSERT INTO `menus` VALUES ('7', 'munka', 'munka', '6');
+INSERT INTO `menus` VALUES ('8', 'design concept', 'design-concept', '2');
 
 -- ----------------------------
 -- Table structure for `news`
@@ -138,11 +149,17 @@ CREATE TABLE `screenshots` (
   PRIMARY KEY (`id`),
   KEY `fk_game` (`game_id`),
   KEY `idx_screenshots` (`path`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of screenshots
 -- ----------------------------
+INSERT INTO `screenshots` VALUES ('3', '4', '2010.08.09_1281352021_Shot_20100806_140416.jpg');
+INSERT INTO `screenshots` VALUES ('4', '4', '2010.08.09_1281352021_Shot_20100806_140427.jpg');
+INSERT INTO `screenshots` VALUES ('5', '7', '2010.08.09_1281361079_35097_10150210887260088_109285415087_13751645_3137044_s.jpg');
+INSERT INTO `screenshots` VALUES ('6', '7', '2010.08.09_1281361080_23274_118840491488257_28_n.jpg');
+INSERT INTO `screenshots` VALUES ('7', '7', '2010.08.09_1281361079_37626_135812453117964_100000676310440_225278_5104195_s.jpg');
+INSERT INTO `screenshots` VALUES ('8', '7', '2010.08.09_1281361080_12961_234666659553_671064553_4286921_8178007_s.jpg');
 
 -- ----------------------------
 -- Table structure for `settings`
@@ -171,13 +188,17 @@ CREATE TABLE `types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
+  `url` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_types` (`name`,`order`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of types
 -- ----------------------------
+INSERT INTO `types` VALUES ('1', 'iphone játékok', '2', 'iphone-jatekok');
+INSERT INTO `types` VALUES ('2', 'psp játékok', '1', 'ps2-jatekok');
+INSERT INTO `types` VALUES ('3', 'pc játékok', '3', 'pc-jatekok');
 
 -- ----------------------------
 -- Table structure for `videos`

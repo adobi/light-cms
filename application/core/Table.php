@@ -3,8 +3,8 @@
     class Table
     {
         
-        private $_connection;
-        private $_fetchMode = PDO::FETCH_ASSOC;
+        protected $_connection;
+        protected $_fetchMode = PDO::FETCH_ASSOC;
         
         protected $_config = array('host'=>HOST, 'dbname'=>DBNAME, 'username'=>USERNAME, 'password'=>PASSWORD);
         
@@ -32,7 +32,7 @@
         
         public function setConfig($config) {
             
-            if(!is_array($config)) {
+            if(!is_array($config)) { 
                 
                 return false;
             }
@@ -86,14 +86,18 @@
             return !empty($result) ? current($result) : false;
         }
         
-        public function fetchAll() 
+        public function fetchAll($order = null) 
         {
-            //$this->_connect();
             /*
                 TODO ORDER BY
             */
             
-            $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY `' . $this->_primary . '` DESC';
+            if (is_null($order)) {
+                
+                $order = $this->_primary;   
+            }
+            
+            $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY `' . $order . '` ASC';
             //dump($sql); die;
             $stmt = $this->_connection->prepare($sql);
             
@@ -124,7 +128,7 @@
 			$stmt = $this->_connection->prepare($sql);
 			$stmt->execute();
 			
-			$result = $stmt->rowCount();
+			$result = $this->_connection->lastInsertId();
 			
 			return $result;             
         }
@@ -145,7 +149,7 @@
 			$sql = 'UPDATE ' . $this->_name . 
 				' SET '  . implode(', ', $set) .  
 				' WHERE ' . $this->_primary . ' = :id';
-			
+			//echo $sql;  die;
 			$stmt = $this->_connection->prepare($sql);
 			
 			

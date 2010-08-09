@@ -1,5 +1,5 @@
 
-div.wysiwyg { border: 1px solid #786B57; padding: 5px; background-color: #ffffff; }
+div.wysiwyg { border: 1px solid #786B57; padding: 5px; background-color: #ffffff; display:inline-block; }
 div.wysiwyg * { margin: 0!important; padding: 0!important; }
 
 div.wysiwyg ul.panel { border-bottom: 1px solid #cccccc; float: left; width: 100%; padding: 0 0 4px 0!important; }

@@ -12,6 +12,6 @@
             
             $errors[] = "Invalid Username/Password";
         }
-    }
+    } 
     
 ?>

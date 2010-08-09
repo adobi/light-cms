@@ -12,7 +12,7 @@
  * @license    http://kohanaphp.com/license.html
  */ 
 class XSS {
-    
+     
 	public static function clear($data)
 	{
 		if (is_array($data))

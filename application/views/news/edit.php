@@ -7,17 +7,12 @@
             <legend><?php echo $buzz ? 'Hír szerkesztése' : 'Hír felvitele' ?></legend>
             
             <p>
-                <label for = "username">Cím:</label>
+                <label for = "username">Cím:</label><br />
                 <input type="text" name="title" id="title" size = "95" class = "required" value = "<?php echo ($buzz) ? htmlspecialchars_decode($buzz['title']) : '' ?>"/>
                 <span class = "error-msg"></span>
+                <br />
             </p>
-            <!--
-            <p>
-                <label for = "url">Url:</label>
-                <input type="text" name="url" value="" id="url" size = "30" class = "required" />
-                <span class = "error-msg"></span>
-            </p>
-            -->            
+            
             <p>
                 <label for = "content">Tartalom:</label>
                 <textarea name="content" rows="10" cols="72" id = "wysiwyg" class = "required"><?php echo ($buzz) ? htmlspecialchars_decode($buzz['content']) : ''; ?></textarea>

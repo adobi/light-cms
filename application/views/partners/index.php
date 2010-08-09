@@ -6,7 +6,7 @@
         <div class="partners-list">
             <?php foreach ($partnersList as $partner) : ?>
                 <div class = "partner">
-                    <a href = "<?= $partner['url'] ?>" target = "_blank">
+                    <a href = "<?= BASE_URL . 'partners/show/' . $partner['url'] ?>" target = "_blank">
                         <img src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>partners/<?= THUMB_UPLOAD_DIR . $partner['logo']?>" 
                              alt = "<?= $partner['name'] ?>" 
                              original-title = "<?= $partner['name'] ?>"/>

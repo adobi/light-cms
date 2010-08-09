@@ -16,7 +16,7 @@
         
 	    require_once 'controllers/' . $controller . '.php';
 	    $flag = 1;
-	}
+	} 
 	else {
 	    
 	    if(empty($controller)) {

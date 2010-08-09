@@ -2,12 +2,13 @@
     
     App = {
         URL: '',
-        UploadFiles: function(params) {
+                
+        UploadFiles: function(element, params) {
 			
 			var url = App.URL;
 			
 			var folder = params.folder;
-			$('#fileInput').fileUpload ({
+			$(element).fileUpload ({
 				'uploader'  : App.URL+'img/uploader.swf',
 				'script'	: params.script,
 				'cancelImg' : App.URL+'img/cancel.png',
@@ -16,20 +17,36 @@
 				'buttonText': 'Csatol',
 				onComplete: function(event, queueId, fileObj, response, data) {
 				    
-				    var form = $('#edit-form')
-				        input = $('<input></input>', {'type': 'hidden', 'name': 'filenames[]', 'value': response}),
-				        uploaded = $('#uploaded-files');
-				    
-				    $('.file-upload').hide();
+				    var form = $('#edit-form'),
+				        input = $('<input></input>', {'type': 'hidden', 'name': params.filenames, 'value': response}),
+				        uploaded = $(element).parents("p:first").nextAll('.uploaded-files:first');
+				    $(element).parents('p:first').find('.file-upload').hide();
 				        
 				    form.append(input);
-				    //alert(folder + response);
-				    uploaded.append($('<img></img>', {'src':params.folder + 'thumbs/' + response}));
+				    
+				    uploaded.append($('<img></img>', {'src':'http://localhost'+params.folder + 'thumbs/' + jQuery.trim(response)}));
+				    
 				    
 				    return true;
 				}
 			});				
         },
+        
+		Editable: function(params) {
+			
+			if ($('.editable').length) {
+				
+			    $('.editable').addClass('edit-icon');
+			    
+				$('.editable').editable({
+			        container: '.editable-container',
+			        element: '.editable',
+			        size: params.size,
+			        saveTo: params.saveTo
+			    });	
+
+			}
+		},        
         
         Validate: function() {
             
@@ -46,7 +63,7 @@
                     $.each(requiredFields, function(idx, element) {
                         
                         var el = $(element);  
-                        var errorMsg = el.next('.error-msg');
+                        var errorMsg = el.nextAll('.error-msg');
                         
                         if(jQuery.trim(el.val()) === '')  {
                             

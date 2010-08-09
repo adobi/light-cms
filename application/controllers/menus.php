@@ -1,6 +1,6 @@
 <?php  
 
-    Check::session();
+    Check::session(); 
 
     $menus = new Menus();
     $errors = array();
@@ -8,7 +8,21 @@
     switch($action) {
         
         case '':
-            $menusList = $menus->fetchAll();
+            $menusList = $menus->fetchAll('order');
+            break;
+        case 'update':
+        
+            if ($_POST && $_POST['orders']) {
+                
+                $orders = $_POST['orders'];
+                
+                foreach ($orders as $index=>$item) {
+                    $menus->update(array('order'=>$index+1), intval($item));
+                }
+                
+                exit;
+            }    
+        
             break;
         case 'edit':
         
@@ -23,10 +37,11 @@
             
             if ($_POST) {
 
-                if (!empty($_POST)) {
+                if (!empty($_POST['name'])) {
                     
                     $data = array();
-                    
+                    $data['name'] = Xss::clear($_POST['name']);
+                    $data['url'] = Sanitizer::sanitize_title_with_dashes($data['name']);
                     if ($menu) {
                         
                         $menus->update($data, intval($param));

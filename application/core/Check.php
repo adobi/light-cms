@@ -5,7 +5,7 @@
 */
 class Check
 {
-    public static function Session() {
+    public static function Session() { 
         
         if (!$_SESSION['UserId']) {
             

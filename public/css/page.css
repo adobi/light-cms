@@ -116,8 +116,6 @@ div#header {
         -moz-border-radius-bottomleft:5px;
         -webkit-border-bottom-right-radius:5px;
         -webkit-border-bottom-left-radius:5px;
-     
-        
     }
     
     div#header a.main-menuitem:hover, div#header a.selected {
@@ -128,21 +126,41 @@ div#header {
 div#sidebar {
 	float:left;
 	padding:0;
-	width:120px;
+	width:150px;
 	border:0px solid #ccc;
 	margin-right:20px;
 	min-height: 120px;
-	
 	margin-top:10px;
+    margin-top:30px;
 }
+    div#sidebar li a.side-menu-item {
+        display:block;
+        padding:10px;
+        background:#eaeaea;
+        border:1px solid #d7d7d7;
+        /*-moz-border-radius-topright:5px; 
+        -moz-border-radius-bottomright:5px;
+        -webkit-border-top-right-radius:5px;
+        -webkit-border-bottom-right-radius:5px;*/
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        margin-bottom:10px;
+        color:#453A31;
+    }
+    
+    div#sidebar li a.side-menu-item:hover {
+        background:#453A31;
+        color:#fefefe!important;
+        text-decoration:none;
+    }
 			
 
 div#content {
 	float:left;
 	padding:10px;
-	width:700px;
+	width:670px;
 	border:0px solid #ccc;	
-	margin-top:10px;
+	margin-top:20px;
 }
 
     div#content fieldset {
@@ -158,21 +176,23 @@ div#content {
     }
     
     div#content label {
-        width: 70px;
+        width: 90px;
         display:inline-block;
         vertical-align:top;
     }   
     
     div#content input[type="text"], div#content input[type="password"], 
     div#content input[type="file"],
-    div#content textarea {
+    div#content textarea,
+    div#content select {
         padding:5px;
         border:1px solid #ccc;
     }
     
     div#content input[type="text"]:hover, div#content input[type="password"]:hover, 
     div#content input[type="text"]:focus, div#content input[type="password"]:focus, 
-    div#content textarea:focus, div#content textarea:focus {
+    div#content textarea:focus, div#content textarea:focus, 
+    div#content select:focus, div#content select:focus {
         border:1px solid #7F635F;
     } 
     
@@ -184,7 +204,16 @@ div#content {
     form input[type=submit]:hover { background-color: #111; color: #fff; }
     form input[type=submit]:active { top: 1px; }
     
+    form p {
+        margin-top:10px;
+        overflow:hidden;
+    }
 
+    .file-upload {
+        /*position:relative;
+        left:210px;
+        top:-28px;*/
+    }
     
     .error {
         border:1px solid red!important;
@@ -194,7 +223,7 @@ div#content {
     }
     
 		
-	div#content .add-icon {
+	.add-icon {
 	    height:20px;
 	    display:inline-block;
 	    background: url(../img/icons.png) no-repeat scroll 0 0 transparent;
@@ -216,6 +245,14 @@ div#content {
 	    padding-left:25px;
 	    font-size:12px;
 	}	
+	
+	div#content .edit-icon {
+        padding-top:2px;
+        padding-right:20px;
+        background:url('../img/icon-edit.gif') no-repeat scroll right -36px transparent;
+        display:inline-block;
+        height:18px;
+    }
 
 	
     div#content .buzz-list, .settings-list {
@@ -247,34 +284,60 @@ div#content {
         color:#777;
     }
     
-    div#content .partners-list {
+    div#content .partners-list, .menus-list, .types-list, .games-list {
         float:left;
+        width:680px;
+        margin-top:10px;
     }
     
-    div#content .partner {
-        float:left; width: 175px;
+    div#content .partner, .menu, .type, .game {
+        float:left; 
+        width: 175px;
         /*border:3px dotted #453A31;*/
         margin-left:20px;
         margin-bottom:20px;
-        padding:10px 10px 0 0;
+        padding:10px 10px 0 10px;
         background:#f3f3f3;
         -moz-border-radius:8px;
         -webkit-border-radius:8px; 
-        -moz-box-shadow: 0 0 1em #777;
-        -webkit-box-shadow: 0 0 1em #777;
-        box-shadow: 0 0 1em #777;                  
+        -moz-box-shadow: 0 0 0.5em #777;
+        -webkit-box-shadow: 0 0 0.5em #777;
+        box-shadow: 0 0 0.5em #777;                  
+        cursor: move;
     }
     
-	#uploaded-files img,  .partners-list img{
+    div#content .menu, .type {
+        float:none;
+        height: 30px;
+    }
+    
+    .uploaded-files {
+        margin-left:90px;
+        padding:0px;
+    }
+    
+	.uploaded-files img,  .partners-list img, .games-list img {
 	    border: 2px solid #ddd;
 	    -moz-border-radius:3px;
 	    -webkit-border-radius:3px;
 	    padding:2px;
 	    margin-left:10px;
 	}
+
+.ui-datepicker-trigger {
+    position:relative;
+    top:3px;
+    left:3px;
+    cursor:pointer;
+    margin-right:5px;
+}
     
 .right {
     float:right!important;
+}
+
+.left {
+    float:left;
 }
 		
 .hidden {
@@ -292,6 +355,19 @@ div#errors {
     font-weight:bold;
     padding:10px;
     width:680px;
+}
+
+.info {
+    font-weight:normal;
+    font-style:italic;
+    font-size:10px!important;
+    color:#999;
+    margin-left:5px;
+    /*background:#FFFF88;*/
+}
+
+.editable-hover {
+    background:#ffff99!important;
 }
 
 div#footer {

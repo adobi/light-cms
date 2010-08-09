@@ -15,7 +15,7 @@ function dump($var, $label = null, $echo = true)
 
 		$output = '<pre>' . $label . $output . '</pre>';
 
-		if($echo) echo $output;
+		if($echo) echo $output; 
 
 		return $output;
 }

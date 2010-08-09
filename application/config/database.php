@@ -5,5 +5,5 @@
     defined('USERNAME') || define('USERNAME', 'root');
     defined('PASSWORD') || define('PASSWORD', '');
     
-
+ 
 ?>

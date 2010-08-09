@@ -9,7 +9,7 @@
         private $_imageType;
         
         private $_sourceImage;
-        private $_destinationImage;
+        private $_destinationImage; 
         
         private $_sourceWidth;
         private $_sourceHeight;

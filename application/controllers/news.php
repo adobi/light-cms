@@ -10,7 +10,7 @@
         case '':
             $newsList = $news->fetchAll();
             break;
-        case 'edit':
+        case 'edit': 
         
             $buzz = false;
             if ($param) {
