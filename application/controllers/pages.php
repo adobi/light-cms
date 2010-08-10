@@ -12,7 +12,14 @@
         
         case '':
         case 'list':
-            $pagesList = $pages->fetchAll();
+            
+            if ($param && $menus->find(intval($param))) {
+                
+                $pagesList = $pages->fetchAllByMenu(intval($param));
+            } else {
+                
+                $pagesList = $pages->fetchAll();
+            }
             break;
         case 'edit':
          
@@ -27,12 +34,13 @@
             
             if ($_POST) {
 
-                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                if (!empty($_POST['menu_id']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                     
                     $data = array();
-                    $data['title'] = htmlspecialchars(XSS::clear($_POST['title']));
-                    $data['content'] = htmlspecialchars(nl2br(XSS::clear($_POST['content'])));
+                    $data['title'] = htmlspecialchars(Xss::clear($_POST['title']));
+                    $data['content'] = htmlspecialchars(nl2br(Xss::clear($_POST['content'])));
                     $data['url'] = Sanitizer::sanitize_title_with_dashes($data['title']);
+                    $data['menu_id'] = intval($_POST['menu_id']);
                     $data['created'] = now();
                     //dump($data); die;
                     if ($page) {

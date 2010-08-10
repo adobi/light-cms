@@ -8,25 +8,25 @@
             <p>
                 <label for = "menus">Menü:</label>
                 <?php if ($menusList): ?>
-                    <br /><select name="menu_id">
-                        <option value="0">-</option>
+                    <br /><select name="menu_id" class = "required">
+                        <option value="">-</option>
                         <?php foreach ($menusList as $menu) : ?>
-                            <option value="<?= $menu['id'] ?>"><?= $menu['name'] ?></option>
+                            <option value="<?= $menu['id'] ?>" <?= $page && $page['menu_id'] == $menu["id"] ? ' selected = "selected"' : '' ?>><?= $menu['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
+                    <span class = "error-msg"></span>
                 <?php endif; ?>
-                <span class = "error-msg"></span>                
             </p>
             <p>
                 <label for = "title">Cím:</label>
                 <br />
-                <input type="text" name="title" id="title" size = "95" class = "required" value = "<?php echo ($page) ? htmlspecialchars_decode($page['title']) : '' ?>"/>
+                <input type="text" name="title" id="title" size = "93" class = "required" value = "<?php echo ($page) ? htmlspecialchars_decode($page['title']) : '' ?>"/>
                 <span class = "error-msg"></span>
             </p>
           
             <p>
                 <label for = "content">Tartalom:</label>
-                <textarea name="content" rows="10" cols="72" id = "wysiwyg" class = "required"><?php echo ($page) ? htmlspecialchars_decode($buzz['content']) : ''; ?></textarea>
+                <textarea name="content" rows="30" cols="72" id = "wysiwyg" class = "required"><?php echo ($page) ? htmlspecialchars_decode($page['content']) : ''; ?></textarea>
                 <span class = "error-msg"></span>
             </p>             
         </fieldset>

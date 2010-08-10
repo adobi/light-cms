@@ -128,14 +128,13 @@ div#sidebar {
 	padding:0;
 	width:180px;
 	border:0px solid #ccc;
-	margin-right:20px;
+	margin-right:10px;
 	min-height: 120px;
-	margin-top:10px;
-    margin-top:30px;
+	margin-top:30px;
 }
     div#sidebar li .side-menu-item {
         display:block;
-        padding:10px;
+        padding:5px 0px 10px 10px;
         background:#eaeaea;
         border:1px solid #d7d7d7;
         height:20px;
@@ -253,7 +252,7 @@ div#content {
 	    height:20px;
 	    display:inline-block;
 	    background: url(../img/icons.png) no-repeat scroll 0 -100px transparent;
-	    padding-left:25px;
+	    padding-left:20px;
 	    font-size:12px;
 	    position:relative;
 	    top:-20px;
@@ -271,7 +270,7 @@ div#content {
 	    height:20px;
 	    display:inline-block;
 	    background: url(../img/icons.png) no-repeat scroll 0 -150px transparent;
-	    padding-left:25px;
+	    padding-left:20px;
 	    font-size:12px;
 	    position:relative;
 	    top:-20px;
@@ -287,13 +286,13 @@ div#content {
     }
 
 	
-    div#content .buzz-list, .settings-list {
+    div#content .buzz-list, .settings-list, .pages-list {
         width:660px;
         border:0px solid #ddd;
         padding:0px;
         margin-top:10px;
     }
-    div#content .buzz, .settings-item {
+    div#content .buzz, .settings-item, .page {
         border:1px solid #ddd;
         -moz-border-radius:3px;
         -webkit-border-radius:3px;
@@ -304,7 +303,7 @@ div#content {
         box-shadow: 3px 3px 5px #777;         
     }
     
-    div#content .buzz-title, .settings-item-name {
+    div#content .buzz-title, .settings-item-name, .page-title {
         font-size:14px;
         font-weight:bold;
         padding: 5px;
@@ -312,7 +311,7 @@ div#content {
         border-bottom:1px solid #ddd;
     }
 
-    div#content .buzz-content, .settings-item-value {
+    div#content .buzz-content, .settings-item-value, .page-content-short, .page-content {
         color:#777;
     }
     
@@ -383,13 +382,45 @@ div#content {
 	}
 	
 	.uploaded-files .delete-img {
+	    padding:0px!important;
 	    float:right;
         background: url('../img/sprite-icons.png') no-repeat scroll -128px 0 transparent;
-        width:4px;
-        height:8px;
+        width:12px;
+        height:12px;
         display:inline-block;
 	}
-
+	
+	.show-all-page-content {
+	    padding:0px!important;
+        background: url('../img/sprite-icons.png') no-repeat scroll 0px -16px transparent;
+        width:13px;
+        height:13px;
+        display:inline-block;
+        position:relative;
+        top:1px;
+	    
+	}
+	.hide-all-page-content {
+	    padding:0px!important;	    
+        background: url('../img/sprite-icons.png') no-repeat scroll -16px -16px transparent;
+        width:13px;
+        height:13px;
+        display:inline-block;
+        position:relative;
+        top:1px;
+	}
+	
+	.arrow-right {
+	    padding:0px!important;	    
+        background: url('../img/arrow_gray.png') no-repeat transparent;
+        width:13px;
+        height:13px;
+        display:inline-block;
+        position:relative;
+        top:3px;
+        left:3px;
+	}
+	
 .sortable-state-highlight {
     border:3px dashed #eaeaea;
     height: 40px; line-height: 1.2em;

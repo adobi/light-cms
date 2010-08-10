@@ -79,9 +79,9 @@
                             if(!el.hasClass('error')) {
                                 el.addClass('error');
                             }
-    
+                            
                             if(jQuery.trim(errorMsg.text()) === '' || jQuery.trim(errorMsg.text()) === 'Not a number') {
-    
+                                
                                 errorMsg.html(errorMsg.text() + ' Required ');
                             }
                             
