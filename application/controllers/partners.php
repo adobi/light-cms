@@ -57,7 +57,7 @@
                     $data = array();
                     $data['name'] = htmlspecialchars(XSS::clear($_POST['name']));
                     $data['url'] = htmlspecialchars(nl2br(XSS::clear($_POST['url'])));
-                    $data['logo'] = $_POST['filenames'][0];
+                    $data['logo'] = trim($_POST['filenames'][0]);
                     
                     if ($partner) {
                         

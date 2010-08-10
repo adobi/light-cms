@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2010-08-09 15:53:25
+Date: 2010-08-10 16:11:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,18 +27,17 @@ CREATE TABLE `games` (
   `type_id` int(11) DEFAULT NULL,
   `url` varchar(100) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
+  `website` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_type` (`type_id`),
   KEY `idx_games` (`name`,`logo`,`released`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of games
 -- ----------------------------
-INSERT INTO `games` VALUES ('5', 'Level R', '2010.08.09_1281352661_12961_234666659553_671064553_4286921_8178007_s.jpg', 'alma', '2010-08-31 00:00:00', '3', 'level-r', '3');
-INSERT INTO `games` VALUES ('4', 'alma', '2010.08.09_1281352007_sprite-icons2.png', 'asd', '2010-08-31 00:00:00', '3', 'alma', '4');
-INSERT INTO `games` VALUES ('6', 'Heat Online', '2010.08.09_1281352693_37626_135812453117964_100000676310440_225278_5104195_s.jpg', 'asd', '2010-08-30 00:00:00', '3', 'heat-online', '1');
-INSERT INTO `games` VALUES ('7', 'froggy jump', '2010.08.09_1281361033_23274_118840491488257_28_n.jpg', 'alma a fa alatt', '2010-08-10 00:00:00', '3', 'froggy-jump', '2');
+INSERT INTO `games` VALUES ('11', 'Level R', '2010.08.10_1281446806_n109285415087_9579.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo,&lt;br /&gt;\r\n odio vel dapibus aliquet, diam nisl dictum erat, id tincidunt est purus&lt;br /&gt;\r\n at ante. Donec vitae tellus risus. Integer eleifend lacus eget est &lt;br /&gt;\r\nmollis congue. Donec enim orci, convallis in bibendum ut, auctor id &lt;br /&gt;\r\ndiam. Pellentesque a mollis eros. Mauris id dolor turpis. Sed ac mauris &lt;br /&gt;\r\nsed elit lobortis venenatis vel eget enim. Quisque lorem arcu, tincidunt&lt;br /&gt;\r\n in rhoncus vel, vulputate ut elit. In eu ligula in nulla blandit &lt;br /&gt;\r\nporttitor in in velit. Proin et eros a massa varius tempus. Proin luctus&lt;br /&gt;\r\n leo a mi accumsan vulputate. Integer vulputate leo id sem accumsan &lt;br /&gt;\r\nauctor pharetra vitae tellus.&lt;br /&gt;\r\n', '2010-08-01 00:00:00', '6', 'level-r', '2', 'http://levelr.gamigo.com/');
+INSERT INTO `games` VALUES ('12', 'froggy jump', '2010.08.10_1281446871_23274_118840491488257_28_n.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo,&lt;br /&gt;\r\n odio vel dapibus aliquet, diam nisl dictum erat, id tincidunt est purus&lt;br /&gt;\r\n at ante. Donec vitae tellus risus. Integer eleifend lacus eget est &lt;br /&gt;\r\nmollis congue. Donec enim orci, convallis in bibendum ut, auctor id &lt;br /&gt;\r\ndiam. Pellentesque a mollis eros. Mauris id dolor turpis. Sed ac mauris &lt;br /&gt;\r\nsed elit lobortis venenatis vel eget enim. Quisque lorem arcu, tincidunt&lt;br /&gt;\r\n in rhoncus vel, vulputate ut elit. In eu ligula in nulla blandit &lt;br /&gt;\r\nporttitor in in velit. Proin et eros a massa varius tempus. Proin luctus&lt;br /&gt;\r\n leo a mi accumsan vulputate. Integer vulputate leo id sem accumsan &lt;br /&gt;\r\nauctor pharetra vitae tellus.&lt;br /&gt;\r\n', '2010-08-09 00:00:00', '7', 'froggy-jump', '1', 'http://www.invictus-games.com/');
 
 -- ----------------------------
 -- Table structure for `images`
@@ -74,13 +73,13 @@ CREATE TABLE `menus` (
 -- ----------------------------
 -- Records of menus
 -- ----------------------------
-INSERT INTO `menus` VALUES ('2', 'játékok', 'jatekok', '3');
-INSERT INTO `menus` VALUES ('3', 'letöltés', 'letoltes', '1');
-INSERT INTO `menus` VALUES ('4', 'cég', 'ceg', '4');
-INSERT INTO `menus` VALUES ('5', 'kapcsolat', 'kapcsolat', '5');
-INSERT INTO `menus` VALUES ('6', 'partnerek', 'partnerek', '7');
+INSERT INTO `menus` VALUES ('2', 'játékok', 'jatekok', '4');
+INSERT INTO `menus` VALUES ('3', 'letöltés', 'letoltes', '7');
+INSERT INTO `menus` VALUES ('4', 'cég', 'ceg', '1');
+INSERT INTO `menus` VALUES ('5', 'kapcsolat', 'kapcsolat', '2');
+INSERT INTO `menus` VALUES ('6', 'partnerek', 'partnerek', '5');
 INSERT INTO `menus` VALUES ('7', 'munka', 'munka', '6');
-INSERT INTO `menus` VALUES ('8', 'design concept', 'design-concept', '2');
+INSERT INTO `menus` VALUES ('8', 'design concept', 'design-concept', '3');
 
 -- ----------------------------
 -- Table structure for `news`
@@ -99,7 +98,7 @@ CREATE TABLE `news` (
 -- ----------------------------
 -- Records of news
 -- ----------------------------
-INSERT INTO `news` VALUES ('1', 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec &lt;br /&gt;\r\nsollicitudin dui eget tellus imperdiet vitae fermentum turpis imperdiet.&lt;br /&gt;\r\n Sed est est, elementum nec porta a, tincidunt a felis. Aenean porta &lt;br /&gt;\r\nnisi est, id sodales sem. Cras non fermentum nisi. Ut ut tortor dapibus &lt;br /&gt;\r\ndolor rutrum vulputate. Proin quam mauris, consequat ut eleifend mattis,&lt;br /&gt;\r\n lacinia eget massa. Quisque at tortor justo. Nunc mollis, libero congue&lt;br /&gt;\r\n tempor adipiscing, eros turpis commodo magna, in gravida erat erat quis&lt;br /&gt;\r\n velit. Sed vitae ante orci. Etiam dictum pellentesque malesuada. Nulla &lt;br /&gt;\r\nsemper adipiscing consequat. Integer ultricies gravida malesuada. Sed &lt;br /&gt;\r\nmalesuada, metus eget imperdiet auctor, ipsum urna feugiat eros, non &lt;br /&gt;\r\ndapibus nisl ligula porttitor nibh.', 'lorem-ipsum-dolor-sit-amet', '2010-08-08 17:21:41');
+INSERT INTO `news` VALUES ('1', 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin dui eget tellus imperdiet vitae fermentum turpis imperdiet.Sed est est, elementum nec porta a, tincidunt a felis. Aenean porta nisi est, id sodales sem. Cras non fermentum nisi. Ut ut tortor dapibus dolor rutrum vulputate. Proin quam mauris, consequat ut eleifend mattis,lacinia eget massa. Quisque at tortor justo. Nunc mollis, libero conguetempor adipiscing, eros turpis commodo magna, in gravida erat erat quisvelit. Sed vitae ante orci. Etiam dictum pellentesque malesuada. Nulla semper adipiscing consequat. Integer ultricies gravida malesuada. Sed malesuada, metus eget imperdiet auctor, ipsum urna feugiat eros, non dapibus nisl ligula porttitor nibh.', 'lorem-ipsum-dolor-sit-amet', '2010-08-10 14:37:16');
 
 -- ----------------------------
 -- Table structure for `pages`
@@ -131,12 +130,15 @@ CREATE TABLE `partners` (
   `url` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_partners` (`name`,`logo`,`url`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of partners
 -- ----------------------------
 INSERT INTO `partners` VALUES ('1', 'Google Ltd', '2010.08.08_1281280397_april-10-creeping-up-calendar-1280x1024.jpg', 'http://google.com');
+INSERT INTO `partners` VALUES ('3', 'Apple Inc', '2010.08.10_1281447795_apple-logo.jpg', 'http://apple.com');
+INSERT INTO `partners` VALUES ('4', 'Microsoft', '2010.08.10_1281447946_microsoft-logo.jpg', 'http://microsoft.com');
+INSERT INTO `partners` VALUES ('5', 'Nvidia', '2010.08.10_1281448003_nvidia-logo.png', 'http://nvidia.com');
 
 -- ----------------------------
 -- Table structure for `screenshots`
@@ -149,17 +151,14 @@ CREATE TABLE `screenshots` (
   PRIMARY KEY (`id`),
   KEY `fk_game` (`game_id`),
   KEY `idx_screenshots` (`path`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of screenshots
 -- ----------------------------
-INSERT INTO `screenshots` VALUES ('3', '4', '2010.08.09_1281352021_Shot_20100806_140416.jpg');
-INSERT INTO `screenshots` VALUES ('4', '4', '2010.08.09_1281352021_Shot_20100806_140427.jpg');
-INSERT INTO `screenshots` VALUES ('5', '7', '2010.08.09_1281361079_35097_10150210887260088_109285415087_13751645_3137044_s.jpg');
-INSERT INTO `screenshots` VALUES ('6', '7', '2010.08.09_1281361080_23274_118840491488257_28_n.jpg');
-INSERT INTO `screenshots` VALUES ('7', '7', '2010.08.09_1281361079_37626_135812453117964_100000676310440_225278_5104195_s.jpg');
-INSERT INTO `screenshots` VALUES ('8', '7', '2010.08.09_1281361080_12961_234666659553_671064553_4286921_8178007_s.jpg');
+INSERT INTO `screenshots` VALUES ('20', '11', '2010.08.10_1281446820_37626_135812453117964_100000676310440_225278_5104195_s.jpg');
+INSERT INTO `screenshots` VALUES ('21', '11', '2010.08.10_1281446821_35097_10150210887260088_109285415087_13751645_3137044_s.jpg');
+INSERT INTO `screenshots` VALUES ('22', '11', '2010.08.10_1281446820_12961_234666659553_671064553_4286921_8178007_s.jpg');
 
 -- ----------------------------
 -- Table structure for `settings`
@@ -191,14 +190,15 @@ CREATE TABLE `types` (
   `url` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_types` (`name`,`order`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of types
 -- ----------------------------
-INSERT INTO `types` VALUES ('1', 'iphone játékok', '2', 'iphone-jatekok');
-INSERT INTO `types` VALUES ('2', 'psp játékok', '1', 'ps2-jatekok');
-INSERT INTO `types` VALUES ('3', 'pc játékok', '3', 'pc-jatekok');
+INSERT INTO `types` VALUES ('7', 'iphone', null, 'iphone');
+INSERT INTO `types` VALUES ('2', 'psp', '2', 'psp');
+INSERT INTO `types` VALUES ('6', 'pc', null, 'pc');
+INSERT INTO `types` VALUES ('5', 'android', '4', 'android');
 
 -- ----------------------------
 -- Table structure for `videos`

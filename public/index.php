@@ -54,7 +54,14 @@
                 
             } else {
                 //Redirect::to(BASE_URL . '404/');
-                $_template = '404/index.php';
+                
+                if ($action === 'list') {
+                    
+                    $_template = $controller . '/index.php';
+                } else {
+                    
+                    $_template = '404/index.php';
+                }
             }
             
         } else {

@@ -40,21 +40,30 @@
 			</div> <!-- header -->			
 			
 			<div id = "sidebar">
-		        <ul>
-    			    <?php if(isset($_SESSION['UserId'])) : ?>
-                        
-    			        <?php if ($controller === 'games') : ?>
-    			            
-    			            <?php require_once '_game_types.php'; ?>
-    			            
-    			        <?php endif; ?>
-    			        
-    			    <?php else : ?>
-			            <li>
-					        <a href = "<?= BASE_URL ?>login">Login</a>
-			            </li>
-    			    <?php endif; ?>
-		        </ul>
+			    <?php if(isset($_SESSION['UserId'])) : ?>
+                    
+			        <?php if ($controller === 'games') : ?>
+			            
+			            <?php require_once '_game_types.php'; ?>
+			            
+			        <?php endif; ?>
+			        
+			        <?php if ($controller === 'pages') : ?>
+			            
+			            <?php require_once '_menus.php'; ?>
+			            
+			        <?php endif; ?>
+			        
+			        
+			        
+			    <?php else : ?>
+			        <ul>
+    		            <li>
+    				        <a href = "<?= BASE_URL ?>login">Login</a>
+    		            </li>
+		            </ul>
+			    <?php endif; ?>
+
 			</div> <!-- sidebar -->
 			
 			<div id="content">

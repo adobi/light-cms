@@ -19,14 +19,23 @@
 				    
 				    var form = $('#edit-form'),
 				        input = $('<input></input>', {'type': 'hidden', 'name': params.filenames, 'value': response}),
-				        uploaded = $(element).parents("p:first").nextAll('.uploaded-files:first');
-				    $(element).parents('p:first').find('.file-upload').hide();
+				        uploaded = $(element).parents("p:first").nextAll('.uploaded-files:first'),
+				        imgWrapperTmpl = $('<div></div>', {'class': 'img-wrapper'}),
+				        img = $('<img></img>', {'src':'http://localhost'+params.folder + 'thumbs/' + jQuery.trim(response)}),
+				        imgWrapper = uploaded.find('.img-wrapper'),
+				        deleteImgLink = $('<a></a>', {'href': 'javascript:void(0)', 'class': 'delete-img'});
+				    
+				    if (!params.multi) {
+				        
+    				    $(element).parents('p:first').find('.file-upload').hide();
+				    }    
 				        
 				    form.append(input);
 				    
-				    uploaded.append($('<img></img>', {'src':'http://localhost'+params.folder + 'thumbs/' + jQuery.trim(response)}));
+				    imgWrapperTmpl.append(img); //.append(deleteImgLink);
 				    
-				    
+				    uploaded.append(imgWrapperTmpl);
+
 				    return true;
 				}
 			});				

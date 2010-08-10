@@ -8,16 +8,18 @@
             <?php foreach ($gamesList as $game) : ?>
                 
                 <div class = "game" id = "orders_<?= $game['id'] ?>">
+                    <div class = "game-type" style = "text-align:center;">
+                        <?= $game['type_name']; ?>
+                    </div>
+                    <img src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $game['logo']?>" 
+                         alt = "<?= $game['name'] ?>" 
+                         original-title = "<?= $game['name'] ?> szerkesztése"/>
+                    <div class = "game-name">
+                        <?= $game['name']; ?> <em>(<?= substr($game['released'], 0, 10) ?>)</em>
+                    </div>     
                     
-                    <!-- <a href = "<?= BASE_URL . 'games/edit/' . $game['id'] ?>"> -->
-                        <img src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $game['logo']?>" 
-                             alt = "<?= $game['name'] ?>" 
-                             original-title = "<?= $game['name'] ?> szerkesztése"/>
-                    <!-- </a> -->
-                    <strong><?= $game['name']; ?> (<?= substr($game['released'], 0, 10) ?>)</strong>
-                    <br /><br />
-                    <a href = "<?= BASE_URL ?>game/delete/<?= $game['id'] ?>" class = "delete-icon right">töröl</a>
-                    <a href = "<?= BASE_URL ?>game/edit/<?= $game['id'] ?>" class = "view-icon right">módosít</a>
+                    <a href = "<?= BASE_URL ?>games/delete/<?= $game['id'] ?>" class = "delete-icon right">töröl</a>
+                    <a href = "<?= BASE_URL ?>games/edit/<?= $game['id'] ?>" class = "view-icon right">módosít</a>
                 </div>
                 
             <?php endforeach; ?>
@@ -32,6 +34,7 @@
             $('.games-list').sortable({ 
                 opacity: 0.6, 
                 cursor: 'move', 
+                placeholder: 'sortable-state-highlight-game',
                 update: function(event, ui) {
         			var order = $(this).sortable("serialize"); 
         			

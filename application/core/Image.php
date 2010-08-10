@@ -38,6 +38,11 @@
                 
             //    $newWidth = $this->_sourceWidth;
             //}
+            
+            /*
+                TODO ha a kep kisebb mint a thumb meret akkor nem csinalunk semmit
+            */
+            
 
             if(function_exists('imagecreatetruecolor')) {
                 $create	= 'imagecreatetruecolor';

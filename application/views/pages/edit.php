@@ -1,13 +1,20 @@
 
     <?php echo Display::errors($errors); ?>
-
+    
     <form action="<?= BASE_URL ?>pages/edit/<?php echo $param ?>" method="post" accept-charset="utf-8" id = "edit-form">
         
         <fieldset>
             <legend><?php echo $page ? 'Oldal szerkesztése' : 'Oldal felvitele' ?></legend>
             <p>
                 <label for = "menus">Menü:</label>
-                
+                <?php if ($menusList): ?>
+                    <br /><select name="menu_id">
+                        <option value="0">-</option>
+                        <?php foreach ($menusList as $menu) : ?>
+                            <option value="<?= $menu['id'] ?>"><?= $menu['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php endif; ?>
                 <span class = "error-msg"></span>                
             </p>
             <p>

@@ -9,7 +9,7 @@
             <p>
                 <label for = "name">Név:</label>
                 
-                <input type="text" name="name" id="name" size = "35" class = "required" value = ""/>
+                <input type="text" name="name" id="name" size = "35" class = "required" value = "<?= $type ? $type['name'] : '' ?>"/>
                 <span class = "error-msg"></span>
             </p>
            

@@ -25,3 +25,9 @@
         </fieldset>
     
     </form>
+    
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $('#sidebar').hide();
+        });
+    </script>

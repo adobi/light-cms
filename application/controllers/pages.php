@@ -4,10 +4,14 @@
 
     $pages = new Pages();
     $errors = array();
-
+    
+    $menus = new Menus();    
+    $menusList = $menus->fetchAll('order');
+    
     switch($action) {
         
         case '':
+        case 'list':
             $pagesList = $pages->fetchAll();
             break;
         case 'edit':

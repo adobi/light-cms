@@ -30,5 +30,7 @@
             size: '35',
             saveTo: App.URL + 'settings/edit'
         });
+        
+        $('#sidebar').hide();
     });
 </script>

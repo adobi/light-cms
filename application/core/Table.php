@@ -152,7 +152,6 @@
 			//echo $sql;  die;
 			$stmt = $this->_connection->prepare($sql);
 			
-			
 			return $stmt->execute(array(':id'=>$id));
         }
         

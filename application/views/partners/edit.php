@@ -20,9 +20,11 @@
             
             <p>
                 <label for = "logo">Logo:</label>
-                <input type="file" name="logo" id="fileInput" class = "file-upload" size = "10"/>
-                <span class = "error-msg"></span>
-                <a class = "file-upload" href="javascript:$('#fileInput').fileUploadStart();">Fájl feltöltése</a> <a class = "file-upload" href="javascript:$('#fileInput').fileUploadClearQueue();">Fájl eltávolítása</a>            
+                <span style = "display:inline-block">
+                    <input type="file" name="logo" id="fileInput" class = "file-upload" size = "10"/>
+                    <span class = "error-msg"></span>
+                    <a class = "file-upload" href="javascript:$('#fileInput').fileUploadStart();">Fájl feltöltése</a> <a class = "file-upload" href="javascript:$('#fileInput').fileUploadClearQueue();">Fájl eltávolítása</a>            
+                </span>
             </p>             
             <div class = "uploaded-files"></div>
         </fieldset>

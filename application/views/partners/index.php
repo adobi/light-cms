@@ -6,12 +6,15 @@
         <div class="partners-list">
             <?php foreach ($partnersList as $partner) : ?>
                 <div class = "partner">
-                    <a href = "<?= BASE_URL . 'partners/show/' . $partner['url'] ?>" target = "_blank">
+                    <div class = "partner-name">
+                        <?= $partner['name']; ?>
+                    </div>
+                    <a href = "<?= $partner['url'] ?>" target = "_blank">
                         <img src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>partners/<?= THUMB_UPLOAD_DIR . $partner['logo']?>" 
                              alt = "<?= $partner['name'] ?>" 
                              original-title = "<?= $partner['name'] ?>"/>
                     </a>
-                    <strong><?= $partner['name']; ?></strong>
+                    
                     <a href = "<?= BASE_URL ?>partners/delete/<?= $partner['id'] ?>" class = "delete-icon right">töröl</a>
                 </div>
             <?php endforeach; ?>
@@ -20,10 +23,15 @@
     <?php endif; ?>
     
     <script type="text/javascript" charset="utf-8">
-        $(function() {
+        /*$(function() {
             $('.partner a img').tipsy({
                 opacity: 0.8,
                 gravity: 's'
             });
-        });
+        });*/
+        
+        $('#sidebar').hide();
+        $('.partners-list').css('width', '900px');
+        $('#content').css('width', '900px');
+        
     </script>

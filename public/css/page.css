@@ -126,18 +126,19 @@ div#header {
 div#sidebar {
 	float:left;
 	padding:0;
-	width:150px;
+	width:180px;
 	border:0px solid #ccc;
 	margin-right:20px;
 	min-height: 120px;
 	margin-top:10px;
     margin-top:30px;
 }
-    div#sidebar li a.side-menu-item {
+    div#sidebar li .side-menu-item {
         display:block;
         padding:10px;
         background:#eaeaea;
         border:1px solid #d7d7d7;
+        height:20px;
         /*-moz-border-radius-topright:5px; 
         -moz-border-radius-bottomright:5px;
         -webkit-border-top-right-radius:5px;
@@ -145,20 +146,30 @@ div#sidebar {
         -moz-border-radius:5px;
         -webkit-border-radius:5px;
         margin-bottom:10px;
-        color:#453A31;
+        overflow:hidden;
     }
     
-    div#sidebar li a.side-menu-item:hover {
+    div#sidebar li .side-menu-item-text {
+        color:#453A31;  
+        display:block;
+    }
+    
+    div#sidebar li .side-menu-item:hover,  div#sidebar li .side-menu-item-text:hover{
         background:#453A31;
         color:#fefefe!important;
         text-decoration:none;
+    }
+    
+    div#sidebar .selected-side-menu {
+        background:#453a31!important;
+        color:#fff!important;
     }
 			
 
 div#content {
 	float:left;
 	padding:10px;
-	width:670px;
+	width:640px;
 	border:0px solid #ccc;	
 	margin-top:20px;
 }
@@ -237,6 +248,16 @@ div#content {
 	    padding-left:25px;
 	    font-size:12px;
 	}
+	
+	div#sidebar .delete-icon {
+	    height:20px;
+	    display:inline-block;
+	    background: url(../img/icons.png) no-repeat scroll 0 -100px transparent;
+	    padding-left:25px;
+	    font-size:12px;
+	    position:relative;
+	    top:-20px;
+	}
 
 	div#content .view-icon {
 	    height:20px;
@@ -245,6 +266,17 @@ div#content {
 	    padding-left:25px;
 	    font-size:12px;
 	}	
+
+	div#sidebar .view-icon {
+	    height:20px;
+	    display:inline-block;
+	    background: url(../img/icons.png) no-repeat scroll 0 -150px transparent;
+	    padding-left:25px;
+	    font-size:12px;
+	    position:relative;
+	    top:-20px;
+	}	
+
 	
 	div#content .edit-icon {
         padding-top:2px;
@@ -306,6 +338,17 @@ div#content {
         cursor: move;
     }
     
+    div#content .partner {
+        cursor:text!important;
+    }
+    
+    div#content .game-type, div#content .game-name, div#content .partner-name {
+        font-weight:bold;
+        text-align:center;
+        color:#554444;
+        margin-bottom:10px;
+    }
+    
     div#content .menu, .type {
         float:none;
         height: 30px;
@@ -313,17 +356,60 @@ div#content {
     
     .uploaded-files {
         margin-left:90px;
+        margin-bottom:10px;
         padding:0px;
+        float:left;
+        display:block;
+        width:590px;
+        /*border:1px solid #ccc;*/
     }
     
-	.uploaded-files img,  .partners-list img, .games-list img {
+	.uploaded-files .img-wrapper,  .partners-list img, .games-list img {
 	    border: 2px solid #ddd;
 	    -moz-border-radius:3px;
 	    -webkit-border-radius:3px;
 	    padding:2px;
 	    margin-left:10px;
+	    /*opacity:0.8;*/
+	    width:150px;
+	    height:128px;
+	    display:inline-block!important;
+	    float:left;
 	    margin-bottom:10px;
 	}
+	
+	.uploaded-files img {
+	    display:block;
+	}
+	
+	.uploaded-files .delete-img {
+	    float:right;
+        background: url('../img/sprite-icons.png') no-repeat scroll -128px 0 transparent;
+        width:4px;
+        height:8px;
+        display:inline-block;
+	}
+
+.sortable-state-highlight {
+    border:3px dashed #eaeaea;
+    height: 40px; line-height: 1.2em;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-bottom:10px;
+}
+
+.sortable-state-highlight-game {
+    border:3px dashed #eaeaea;
+    height: 230px; 
+    width:195px;
+    margin-left:20px;
+    margin-bottom:20px;    
+    display:inline-block;
+    line-height: 1.2em;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+
 
 .ui-datepicker-trigger {
     position:relative;

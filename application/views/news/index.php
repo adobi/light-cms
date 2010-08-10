@@ -27,3 +27,12 @@
     <?php else : ?>
         <br /> <em>nincs hír az adatbázisban</em>
     <?php endif; ?>
+    
+    
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $('#sidebar').hide();
+            
+            $('.buzz-list').css('width', '900px');
+        });
+    </script>    

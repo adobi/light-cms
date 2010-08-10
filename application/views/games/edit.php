@@ -30,8 +30,13 @@
             </p>
 
             <p>
+                <label for="website">Weboldal:</label>
+                <input type="text" name="website" value="<?= $game ? $game['website'] : '' ?>" id="website" size = "35"/>
+            </p>
+
+            <p>
                 <label for="released">Kiadás dátuma:</label>
-                <input type="text" name="released" value="<?= $game ? $game['released'] : '' ?>" id="released" class = "datepicker" size = "20"/>
+                <input type="text" name="released" value="<?= $game ? substr($game['released'], 0, 10) : '' ?>" id="released" class = "datepicker" size = "20"/>
             </p>
             
             <p>
@@ -43,8 +48,11 @@
                 </span>
             </p>             
             <div class = "uploaded-files">
-                <?php if ($game) : ?>
-                    <img  src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $game['logo']?>" alt="" />
+                <?php if ($game && !empty($game['logo'])) : ?>
+                    <div class = "img-wrapper">
+                        <img id = "<?= $game['id'] ?>" class = "logo" src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $game['logo']?>" alt="" />
+                        <a href = "javascript:void(0);" class = "delete-img _hidden"></a>
+                    </div>
                 <?php endif; ?>
             </div>
             
@@ -62,7 +70,10 @@
                 <?php if ($game && $gamesScreenshots) : ?>
                     
                     <?php foreach ($gamesScreenshots as $screen) : ?>
-                        <img  src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $screen['path']?>" alt="" />
+                        <div class = "img-wrapper">
+                            <img id = "<?= $screen['id'] ?>" class = "screenshot"  src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $screen['path']?>" alt="" />
+                            <a href = "javascript:void(0);" class = "delete-img "></a>
+                        </div>
                     <?php endforeach; ?>
                     
                 <?php endif; ?>
@@ -70,7 +81,7 @@
             </div>
             <p>
                 <label for = "description">Leírás:</label>
-                <textarea name="description" rows="15" cols="68" id = "wysiwyg" class = "required"><?= $game ? $game['description'] : '' ?></textarea>
+                <textarea name="description" rows="15" cols="68" id = "wysiwyg" class = "required"><?= $game ? htmlspecialchars_decode($game['description']) : '' ?></textarea>
                 <span class = "error-msg"></span>
             </p>
             
@@ -85,35 +96,79 @@
     <script type="text/javascript" charset="utf-8">
         $(function() {
             $('#wysiwyg').wysiwyg();
-
-        });
-        App.UploadFiles($('#fileInputLogo'), {
-            "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>games/",
-            "script": "/invictus/invictus.hu/public/uploads/upload.php",
-            //"script": "/partners/upload/",
-            "multi": false,
-            "filenames": "logo[]"
-        });  
+            
+            $('#edit-form').delegate('.delete-img', 'click', function() {
                 
-        
-        App.UploadFiles($('#screenshots'), {
-            "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>games/",
-            "script": "/invictus/invictus.hu/public/uploads/upload.php",
-            //"script": "/partners/upload/",
-            "multi": true,
-            "filenames": "screenshots[]"
+                var self = $(this),
+                    img = self.prevAll('img:first'),
+                    id =  img.attr('id'),
+                    imageType = '';
+                
+                if (img.is('.screenshot')) {
+                   
+                    imageType = 'screenshot';
+                } 
+
+                if (img.is('.logo')) {
+                    imageType = 'logo';
+                }
+
+                $.ajax({
+                    url: App.URL + 'games/delete-image',
+                    type: "POST",
+                    dataType: "text",
+                    data: {
+                        'id': id,
+                        'imageType': imageType  
+                    },
+                    
+                    complete: function() {
+                    //called when complete
+                    },
+                    
+                    success: function(response) {
+                        response = jQuery.trim(response);
+                        
+                        if (response == 'ok') {
+                            
+                            self.parents('.img-wrapper:first').remove();
+                        }
+                    },
+                    
+                    error: function() {
+                    //called when there is an error
+                    }
+                });
+                
+            });
+
+            App.UploadFiles($('#fileInputLogo'), {
+                "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>games/",
+                "script": "/invictus/invictus.hu/public/uploads/upload.php",
+                //"script": "/partners/upload/",
+                "multi": false,
+                "filenames": "logo[]"
+            });  
+                    
+            
+            App.UploadFiles($('#screenshots'), {
+                "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>games/",
+                "script": "/invictus/invictus.hu/public/uploads/upload.php",
+                //"script": "/partners/upload/",
+                "multi": true,
+                "filenames": "screenshots[]"
+            });
+                         
+            
+            $('.datepicker').datepicker({ 
+                dateFormat: 'yy-mm-dd',
+        		changeYear: true, 
+        		changeMonth: true, 
+        		showMonthAfterYear:true, 
+        		yearRange: '1940:+0',
+                showOn: 'both',
+    			buttonImage: App.URL + 'img/calendar.png',
+    			buttonImageOnly: true
+    		});
         });
-                     
-        
-        $('.datepicker').datepicker({ 
-            dateFormat: 'yy-mm-dd',
-    		changeYear: true, 
-    		changeMonth: true, 
-    		showMonthAfterYear:true, 
-    		yearRange: '1940:+0',
-            showOn: 'both',
-			buttonImage: App.URL + 'img/calendar.png',
-			buttonImageOnly: true
-		});
-        
     </script>    

@@ -26,12 +26,12 @@
             break;
         case 'edit':
         
-            $page = false;
+            $menu = false;
             if ($param) {
                 
                 if (is_numeric($param)) {
                     
-                    
+                    $menu = $menus->find(intval($param));
                 } 
             }
             

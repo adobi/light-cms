@@ -40,17 +40,18 @@
                     
                     $data = array();
                     
-                    //dump($data); die;
+                    $data['name'] = Xss::clear($_POST['name']);
+                    $data['url'] = Sanitizer::sanitize_title_with_dashes($data['name']);
+                    
                     if ($type) {
                         
                         $types->update($data, intval($param));
                     } else {
-                        $data['name'] = Xss::clear($_POST['name']);
-                        $data['url'] = Sanitizer::sanitize_title_with_dashes($data['name']);                        
+
                         $types->insert($data);                        
                     }
                     
-                    Redirect::to(BASE_URL . 'types');
+                    Redirect::to(BASE_URL . 'games');
                 } else {
                     $errors[] = 'Minden mező kitöltése kötelező';
                 }   
@@ -67,7 +68,7 @@
                     $types->delete(intval($param));
                 }
                 
-                Redirect::to(BASE_URL . 'types');
+                Redirect::to(BASE_URL . 'games');
             }
         
             break;
