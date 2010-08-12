@@ -71,7 +71,9 @@
                     
                     <?php foreach ($gamesScreenshots as $screen) : ?>
                         <div class = "img-wrapper">
-                            <img id = "<?= $screen['id'] ?>" class = "screenshot"  src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $screen['path']?>" alt="" />
+                            <a rel = "images-group" style = "padding:0px;" class = "images-fancybox" href="<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= $screen['path']?>">
+                                <img id = "<?= $screen['id'] ?>" class = "screenshot"  src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $screen['path']?>" alt="" />
+                                </a>
                             <a href = "javascript:void(0);" class = "delete-img "></a>
                         </div>
                     <?php endforeach; ?>
@@ -79,6 +81,52 @@
                 <?php endif; ?>
                 
             </div>
+
+            
+            <p>
+                <label>Video:</label>
+                <span class = "videos-wrapper">
+                    
+                    <span class = "video" style = "margin:0px 0px 10px 0px;">
+                        <input type="text" name="videos[]" size = "40" value = ""/>
+                        <a href = "javascript:void(0);" class = "view-icon view-video"></a>
+                        <a href = "javascript:void(0);" class = "add-icon add-video"></a>
+                        <a href = "javascript:void(0);" class = "delete-icon delete-video"></a>
+                        <br /><br />
+                        <span class = "video-embed"></span>
+                    </span>
+                    
+                    <?php if ($gameVideos) : ?> 
+                        
+                        <?php foreach ($gameVideos as $video) : ?>
+                            
+                            <span class = "video">
+                                <span class = "video-embed" style = "border:0px solid #ccc;">
+                                    <object width="440" height="255"> 
+                                        <param name="movie" value="<?= $video['path'] ?>&amp;hl=hu_HU&amp;fs=1"></param>
+                                        <param name="allowFullScreen" value="true"></param> 
+                                        <param name="allowscriptaccess" value="always"></param> 
+                                        <embed src="<?= $video['path'] ?>&amp;hl=hu_HU&amp;fs=1" 
+                                               type="application/x-shockwave-flash" 
+                                               allowscriptaccess="always" 
+                                               allowfullscreen="true"
+                                               width="440"
+                                               height="255">
+                                       </embed>
+                                    </object>
+                                    <span class = "delete-existing-video-wrapper" title = "videó törlése">
+                                        <a id = "<?= $video['id'] ?>" href = "javascript:void(0);" class = "delete-existing-video "style = "margin:5px;"></a>
+                                    </span>
+                                </span>
+                            </span>                            
+                            
+                        <?php endforeach; ?>
+                        
+                    <?php endif; ?>
+                    
+                </span>
+            </p>
+            
             <p>
                 <label for = "description">Leírás:</label>
                 <textarea name="description" rows="15" cols="68" id = "wysiwyg" class = "required"><?= $game ? htmlspecialchars_decode($game['description']) : '' ?></textarea>
@@ -97,50 +145,24 @@
         $(function() {
             $('#wysiwyg').wysiwyg();
             
-            $('#edit-form').delegate('.delete-img', 'click', function() {
-                
-                var self = $(this),
-                    img = self.prevAll('img:first'),
-                    id =  img.attr('id'),
-                    imageType = '';
-                
-                if (img.is('.screenshot')) {
-                   
-                    imageType = 'screenshot';
-                } 
-
-                if (img.is('.logo')) {
-                    imageType = 'logo';
-                }
-
-                $.ajax({
-                    url: App.URL + 'games/delete-image',
-                    type: "POST",
-                    dataType: "text",
-                    data: {
-                        'id': id,
-                        'imageType': imageType  
-                    },
-                    
-                    complete: function() {
-                    //called when complete
-                    },
-                    
-                    success: function(response) {
-                        response = jQuery.trim(response);
-                        
-                        if (response == 'ok') {
-                            
-                            self.parents('.img-wrapper:first').remove();
-                        }
-                    },
-                    
-                    error: function() {
-                    //called when there is an error
-                    }
-                });
-                
+            $('.images-fancybox').fancybox({
+        		'transitionIn'		: 'elastic',
+        		'transitionOut'		: 'elastic',
+        		'titlePosition' 	: 'over'
             });
+
+
+            App.AddVideoLinker();
+            App.DeleteVideo({
+                'url': 'games/delete-video'
+            });
+            App.EmbedVideo();
+            
+            App.RemoveVideo();
+            
+            App.DeleteImage({
+                'url': 'games/delete-image'
+            });       
 
             App.UploadFiles($('#fileInputLogo'), {
                 "folder": "/invictus/invictus.hu/public/<?= FOTO_UPLOAD_DIR ?>games/",

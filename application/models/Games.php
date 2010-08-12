@@ -23,6 +23,20 @@ class Games extends Table
         return !empty($result) ? $result : false;        
     }
     
+    public function findByUrl($url) 
+    {
+
+        $sql = 'SELECT * FROM ' . $this->_name . ' WHERE url = :url';
+        
+        $stmt = $this->_connection->prepare($sql);
+        
+        $stmt->execute(array(':url'=>$url));
+        
+        $result = $stmt->fetchAll($this->_fetchMode);
+        
+        return !empty($result) ? current($result) : false;
+    }
+    
     public function fetchAllByType($typeId)
     {
         if (!is_numeric($typeId)) {

@@ -50,7 +50,7 @@
                         $menus->insert($data);                        
                     }
                     
-                    Redirect::to(BASE_URL . 'menus');
+                    Redirect::to(BASE_URL . 'pages');
                 } else {
                     $errors[] = 'Minden mező kitöltése kötelező';
                 }   
@@ -67,7 +67,7 @@
                     $menus->delete(intval($param));
                 }
                 
-                Redirect::to(BASE_URL . 'menus');
+                Redirect::to(BASE_URL . 'pages');
             }
         
             break;

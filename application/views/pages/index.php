@@ -16,15 +16,25 @@
                         <a href = "<?= BASE_URL ?>pages/delete/<?= $page['id'] ?>" class = "delete-icon right">töröl</a>
                         <a href = "<?= BASE_URL ?>pages/edit/<?= $page['id'] ?>" class = "view-icon right">módosít</a>
                     </div>
-                    <div class = "page-content-short">
-                        <?= substr(htmlspecialchars_decode($page['content']), 0, 1000); ?>...
-                        <a href="javascript:void(0);" class = "show-all-page-content"></a>
-                    </div>
-                    <div class = "page-content hidden">
-                        <?= htmlspecialchars_decode($page['content']); ?>
-                        <a href="javascript:void(0);" class = "hide-all-page-content"></a>
-                    </div>
-                    
+                    <?php $decoded = htmlspecialchars_decode($page['content']); ?>
+                    <?php if (strlen($decoded) < 1000) : ?>
+                        <div class = "page-content-short">
+                            <br />
+                            <?= $decoded; ?>
+                        </div>
+                    <?php else: ?>
+                        <div class = "page-content-short">
+                            <br />
+                            <?= substr($decoded, 0, 1000) ?>...
+                            <a href="javascript:void(0);" class = "show-all-page-content"></a>
+                        </div>
+                        <div class = "page-content hidden">
+                            <br />
+                            <?= htmlspecialchars_decode($page['content']); ?>
+                            <a href="javascript:void(0);" class = "hide-all-page-content"></a>
+                        </div>
+                        
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
             

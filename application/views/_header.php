@@ -14,15 +14,18 @@
 		<link rel="stylesheet" href="<?= BASE_URL ?>css/uploadify.css" />
 		<link rel="stylesheet" href="<?= BASE_URL ?>js/tipsy/stylesheets/tipsy.css" />
 		<link rel="stylesheet" href="<?= BASE_URL ?>css/jquery-ui-1.8.4.custom.css" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>js/fancybox/jquery.fancybox-1.3.1.css" />
 		
+		<!-- <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> -->
 		
 		<script type="text/javascript" charset="utf-8" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery-ui-1.8.4.custom.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery.wysiwyg.js"></script>
 		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery.uploadify.js"></script>
 		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/tipsy/javascripts/jquery.tipsy.js"></script>
 		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery.editable.js"></script>
-		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/jquery-ui-1.8.4.custom.min.js"></script>
-		
+		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/fancybox/jquery.fancybox-1.3.1.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?php echo BASE_URL ?>js/fancybox/jquery.easing-1.3.pack.js"></script>
 		
 		<script type="text/javascript" charset="utf-8" src = "<?= BASE_URL ?>js/app.js?v=<?= time(); ?>"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -34,36 +37,12 @@
 		<div id="container">
 			
             <div id = "header">
-    		    <?php if(isset($_SESSION['UserId'])) : ?>
-                    <?php require_once '_admin_menu.php'; ?>
-    			<?php endif; ?>    
+                <?php require_once '_public_menu.php'; ?>
 			</div> <!-- header -->			
 			
 			<div id = "sidebar">
-			    <?php if(isset($_SESSION['UserId'])) : ?>
-                    
-			        <?php if ($controller === 'games') : ?>
-			            
-			            <?php require_once '_game_types.php'; ?>
-			            
-			        <?php endif; ?>
-			        
-			        <?php if ($controller === 'pages') : ?>
-			            
-			            <?php require_once '_menus.php'; ?>
-			            
-			        <?php endif; ?>
-			        
-			        
-			        
-			    <?php else : ?>
-			        <ul>
-    		            <li>
-    				        <a href = "<?= BASE_URL ?>login">Login</a>
-    		            </li>
-		            </ul>
-			    <?php endif; ?>
-
+			    <?php require_once '_public_sidebar.php'; ?>
 			</div> <!-- sidebar -->
 			
 			<div id="content">
+			    

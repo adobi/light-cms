@@ -7,7 +7,21 @@
             <legend><?php echo $buzz ? 'Hír szerkesztése' : 'Hír felvitele' ?></legend>
             
             <p>
-                <label for = "username">Cím:</label><br />
+                <label for="type_id">Típus:</label>
+                <?php if ($typesList) : ?>
+                    <br /><select name="type_id" id="type_id">
+                        <option value="">-</option>
+                        
+                        <?php foreach($typesList as $type) : ?>
+                            <option value="<?= $type['id'] ?>" <?= $buzz && $buzz['type_id'] == $type['id'] ? ' selected = "selected" ' : '' ?>><?= $type['name'] ?></option>  
+                        <?php endforeach; ?>    
+                            
+                    </select>    
+                <?php endif; ?>
+            </p>
+            
+            <p>
+                <label for = "title">Cím:</label><br />
                 <input type="text" name="title" id="title" size = "95" class = "required" value = "<?php echo ($buzz) ? htmlspecialchars_decode($buzz['title']) : '' ?>"/>
                 <span class = "error-msg"></span>
                 <br />
@@ -30,6 +44,6 @@
         $(function() {
             $('#wysiwyg').wysiwyg();
             
-            $('#sidebar').hide();
+            //$('#sidebar').hide();
         });
     </script>

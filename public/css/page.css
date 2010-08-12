@@ -96,14 +96,16 @@ div#container {
 
 div#header {
 	overflow:hidden;
-    width:975px; 
+    width:930px; 
+    border:0px solid #ccc;
+    margin:0 auto;
 }
 
     div#header a.main-menuitem {
-        height:25px;
-        font-size:1.4em;
+        height:20px;
+        font-size:1.1em;
         font-weight:bold;
-        width:120px; 
+        width:100px; 
         color:#453A31; 
         text-align:center;
         display:inline-block;
@@ -287,7 +289,7 @@ div#content {
 
 	
     div#content .buzz-list, .settings-list, .pages-list {
-        width:660px;
+        width:640px;
         border:0px solid #ddd;
         padding:0px;
         margin-top:10px;
@@ -353,20 +355,25 @@ div#content {
         height: 30px;
     }
     
-    .uploaded-files {
-        margin-left:90px;
+    .uploaded-files, .uploaded-videos {
+        margin-left:90px!important;
         margin-bottom:10px;
         padding:0px;
         float:left;
         display:block;
         width:590px;
         /*border:1px solid #ccc;*/
+        overflow:hidden;
     }
     
-	.uploaded-files .img-wrapper,  .partners-list img, .games-list img {
+    .uploaded-videos{
+        padding-left:10px;
+    }
+    
+	.uploaded-files .img-wrapper,  .partners-list img, .games-list img, .page-img-wrapper img {
 	    border: 2px solid #ddd;
 	    -moz-border-radius:3px;
-	    -webkit-border-radius:3px;
+	    -webkit-border-radius:3px;	    
 	    padding:2px;
 	    margin-left:10px;
 	    /*opacity:0.8;*/
@@ -375,18 +382,55 @@ div#content {
 	    display:inline-block!important;
 	    float:left;
 	    margin-bottom:10px;
+	    background:#eaeaea;
 	}
 	
+	.add-video, .view-video, .delete-video {
+	    width:20px; height:20px;margin:0px; padding:0px!important; position:relative; top:5px;
+	}
+	
+	.video-embed {
+	    padding:10px 0;
+	}
+	
+	.videos-wrapper {
+	    display:inline-block; width: 500px; overflow:hidden; border:0px solid #ccc;
+	}
+    
+	.video {
+	    width: 480px; display:inline-block; border:0px solid #ccc; overflow:hidden; margin:10px 0!important;
+	    background: #eaeaea;
+	    padding-left:5px;
+	    padding-top:10px!important;
+	}
+	
+	.delete-existing-video-wrapper {
+	    width:30px;
+	    height:25px;
+	    display:inline-block;
+	    background: #f1f1f1;
+	    -moz-border-radius-topright:3px;
+	    -moz-border-radius-bottomright:3px;
+        -webkit-border-bottom-right-radius:3px;
+        -webkit-border-top-right-radius:3px;	    
+	    float:right;
+	    position:relative;
+	    left:-10px;
+	    padding-right:3px;
+	    border:1px solid #d7d7d7;
+	    border-left:0px;
+	}
+		
 	.uploaded-files img {
 	    display:block;
 	}
 	
-	.uploaded-files .delete-img {
+	.uploaded-files .delete-img, .videos-wrapper .delete-existing-video {
 	    padding:0px!important;
 	    float:right;
         background: url('../img/sprite-icons.png') no-repeat scroll -128px 0 transparent;
-        width:12px;
-        height:12px;
+        width:13px;
+        height:13px;
         display:inline-block;
 	}
 	
@@ -419,6 +463,28 @@ div#content {
         position:relative;
         top:3px;
         left:3px;
+	}
+	
+	.buzz-type-iphone {
+	    padding:0px!important;	    
+        background: url('../img/ikon_iphone.png') no-repeat transparent;
+        width:52px;
+        height:27px;
+        display:inline-block;	    
+	}
+	.buzz-type-pc {
+	    padding:0px!important;	    
+        background: url('../img/ikon_pc.png') no-repeat transparent;
+        width:52px;
+        height:27px;
+        display:inline-block;	    
+	}
+	.buzz-type-psp {
+	    padding:0px!important;	    
+        background: url('../img/ikon_psp.png') no-repeat transparent;
+        width:52px;
+        height:27px;
+        display:inline-block;	    
 	}
 	
 .sortable-state-highlight {
@@ -498,4 +564,24 @@ div#footer {
 	padding:20px 0 20px 0;
 	text-align:center;
 	width:100%;
+}
+
+/* PUBLIC STUFF */
+.a-page, .a-game {
+    float:left;
+    overflow:hidden;
+    border:0px solid #ccc;
+    width:680px;
+    margin-bottom:10px;
+}
+.a-page .page-images, .a-page .page-videos, .a-game .game-videos, .a-game .game-images {
+    float:left;
+    width:680px;
+    margin-top:10px;
+}
+
+.a-page .page-content, .a-game .game-description {
+    float:left;
+    padding:10px;
+    width:680px;
 }

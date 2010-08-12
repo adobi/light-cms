@@ -3,8 +3,8 @@
         <ul>
         <?php foreach ($currentTypes as $currentType) : ?>
             <li id = "orders_<?= $currentType['id'] ?>">
-                <span class = "side-menu-item <?= $param && $param == $currentType['id'] ? ' selected-side-menu ' : '' ?>">
-                    <a href="<?= BASE_URL ?>games/list/<?= $currentType['id'] ?>" class = "side-menu-item-text <?= $param && $param == $currentType['id'] ? ' selected-side-menu ' : '' ?>"><?= $currentType['name'] ?></a> 
+                <span class = "side-menu-item <?= $action == 'list' && $param && $param == $currentType['id'] ? ' selected-side-menu ' : '' ?>">
+                    <a href="<?= BASE_URL ?>games/list/<?= $currentType['id'] ?>" class = "side-menu-item-text <?= $action == 'list' && $param && $param == $currentType['id'] ? ' selected-side-menu ' : '' ?>"><?= $currentType['name'] ?></a> 
                     <!-- <strong class = "side-menu-item-text <?= $param && $param == $currentType['id'] ? ' selected-side-menu ' : '' ?>"><?= $currentType['name'] ?></strong> -->
                     <a href = "<?= BASE_URL ?>types/delete/<?= $currentType['id'] ?>" class = "delete-icon right"></a> 
                     <a href = "<?= BASE_URL ?>types/edit/<?= $currentType['id'] ?>" class = "view-icon right"></a>
@@ -14,7 +14,7 @@
         </ul>
     <?php endif; ?>
     <ul>
-        <li><a href="<?= BASE_URL ?>types/edit">új típus</a> <!-- | <a href="<?= BASE_URL ?>types/">összes típus</a> --> </li>
+        <li><a href="<?= BASE_URL ?>types/edit" class = "add-icon">új típus</a> <!-- | <a href="<?= BASE_URL ?>types/">összes típus</a> --> </li>
     </ul>
 
         

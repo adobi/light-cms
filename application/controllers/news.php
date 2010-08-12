@@ -5,10 +5,27 @@
     $news = new News();
     $errors = array();
     
+    $types = new Types();
+    $typesList = $types->fetchAll();
+    
     switch($action) {
         
         case '':
-            $newsList = $news->fetchAll();
+        case 'list':
+            
+            if ($action === 'list' && empty($param)) {
+                
+                $newsList = $news->fetchAllByType(null);
+            } else {
+                
+                if ($param && $types->find(intval($param))) {
+                    
+                    $newsList = $news->fetchAllByType(intval($param));
+                } else {
+                    
+                    $newsList = $news->fetchAll('created');
+                }            
+            }
             break;
         case 'edit': 
         
@@ -29,6 +46,7 @@
                     $data['title'] = htmlspecialchars(XSS::clear($_POST['title']));
                     $data['content'] = htmlspecialchars(nl2br(XSS::clear($_POST['content'])));
                     $data['url'] = Sanitizer::sanitize_title_with_dashes($data['title']);
+                    $data['type_id'] = $_POST['type_id'];
                     $data['created'] = now();
                     //dump($data); die;
                     if ($buzz) {

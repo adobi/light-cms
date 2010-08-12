@@ -6,6 +6,16 @@ class Pages extends Table
     protected $_primary = "id";
     
     
+    public function delete($id) 
+    {
+
+        /*
+            TODO torlodjenek a kepes es a videok is
+        */
+        
+        parent::delete($id);
+    }
+    
     public function fetchAll($order = null)
     {
         $sql = 'SELECT p.*, m.name FROM ' . $this->_name . ' p LEFT JOIN menus m ON p.menu_id = m.id';

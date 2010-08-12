@@ -40,7 +40,20 @@
                 exit;
             }
             break;
+        case 'delete-video':
             
+            if ($_POST && $_POST['id']) {
+                
+                $videos = new GameVideos();
+                
+                $videos->delete(intval($_POST['id']));
+                
+                echo 'ok';
+            }
+        
+            exit;
+        
+            break;        
         case 'delete-image':
             
             if ($_POST && $_POST['id'] && $_POST['imageType']) {
@@ -65,17 +78,18 @@
         case 'edit':
         
             $game = false;
-            $gameScreenshots = false;
-            if ($param) {
+            $gameScreenshots = false; $gameVideos = false;
+            if ($param && is_numeric($param)) {
                 
-                if (is_numeric($param)) {
-                    
-                    $game = $games->find(intval($param));
-                    
-                    $screenshots = new Screenshots();
-                    
-                    $gamesScreenshots = $screenshots->fetchAllByGame(intval($param));
-                } 
+                $game = $games->find(intval($param));
+                
+                $screenshots = new Screenshots();
+                
+                $gamesScreenshots = $screenshots->fetchAllByGame(intval($param));
+                
+                $videos = new GameVideos();
+                
+                $gameVideos = $videos->fetchAllByGame(intval($param));                
             }
             
             if ($_POST) {
@@ -107,7 +121,7 @@
                     
                     if ($gameId) {
                         
-                        if ($_POST['screenshots']) {
+                        if (array_key_exists('screenshots', $_POST)) {
                             
                             $screenshots = new Screenshots();
                             foreach ($_POST['screenshots'] as $screenshot) {
@@ -115,6 +129,24 @@
                                 $screenshots->insert(array('game_id'=>$gameId, 'path'=>trim($screenshot)));
                             }
                         }
+                        
+                        
+                        if ($_POST['videos']) {
+                            
+                            $videos = new GameVideos();
+                            
+                            foreach ($_POST['videos'] as $video) {
+                                $video = trim($video);
+                                
+                                if ($video) {
+                                    $data = array();
+                                    $data['path'] = trim($video);
+                                    $data['game_id'] = $gameId;
+                                    
+                                    $videos->insert($data);
+                                }
+                            }
+                        }                        
                     }
                     
                     Redirect::to(BASE_URL . 'games');
