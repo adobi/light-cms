@@ -57,7 +57,7 @@
                 });
                 */
 				
-				$jScroller.add("#carousel","#scroller","left",7, true);
+				$jScroller.add("#carousel","#scroller","left",20, true);
 				$jScroller.start();
 
                 
