@@ -43,6 +43,12 @@
                 TODO ha a kep kisebb mint a thumb meret akkor nem csinalunk semmit
             */
             
+            if ($this->_sourceWidth < THUMB_WIDTH && $this->_sourceHeight < THUMB_HEIGHT) {
+                
+                $newHeight = $this->_sourceHeight;
+                $newWidth = $this->_sourceWidth;
+            }
+            
 
             if(function_exists('imagecreatetruecolor')) {
                 $create	= 'imagecreatetruecolor';

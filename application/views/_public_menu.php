@@ -1,4 +1,4 @@
-    <?php if (isset($mainMenus)) : ?>
+    <?php if (isset($mainMenus) && $mainMenus) : ?>
         
         <?php foreach ($mainMenus as $menu) : ?>
             

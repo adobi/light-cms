@@ -9,8 +9,9 @@
                 <div class = "page-content">
                     <?= htmlspecialchars_decode($p['content']) ?>
                 </div>
+                <div class = "game-inner-nav">
                 <a href="javascript:void(0);" class = "show-images">képek</a> | <a href="javascript:void(0);" class = "show-videos">videos</a>
-                
+                </div>               
                 <div class = "page-images hidden">
                     <?php $pageImages = $images->fetchAllByPage(intval($p['id'])); ?>
                     <?php if ($pageImages) : ?>
@@ -58,17 +59,17 @@
         		'titlePosition' 	: 'over'
             }); 
             
-            $('.show-images').bind('click', function() {
-                
-                $(this).nextAll('.page-images').toggle();
-                
+            $('#content').delegate('.show-images', 'click', function() {
+
+                $(this).parents('.a-page').find('.page-images').toggle();
+                $('#content').jScrollPane({showArrows:false}); 
                 return false;    
             });         
-            $('.show-videos').bind('click', function() {
-                
-                $(this).nextAll('.page-videos').toggle();
-                
+            $('#content').delegate('.show-videos', 'click', function() {
+
+                $(this).parents('.a-page').find('.page-videos').toggle();
+                $('#content').jScrollPane({showArrows:false}); 
                 return false;    
-            });         
+            });          
         });
     </script>

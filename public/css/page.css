@@ -56,17 +56,18 @@ body, html {
 }
 
 body {
-	background:#FEFEFE;
+	background:#B8B8B8;
 	color:#444;
 	font:62.5% /1.5 Helvetica, Arial,sans-serif;
 	line-height:1.5;
 	text-align:center;
 	border-top:5px solid #2DAEBF;
+	margin-bottom:0px!important;
 	/*background:#453A31;*/
 }
 
 a {
-	text-decoration: none; padding:3px 5px; color: #4183C4;
+	text-decoration: none; padding:3px 5px; color: #d7d7d7;
 	font-weight:bold;
 }
 
@@ -92,15 +93,19 @@ div#container {
 	width:950px;
 	border:0px solid #ccc;
 	overflow:hidden;
+	border:0px solid #fff;
+    -moz-box-shadow: 0 0 10px #777;
+    -webkit-box-shadow: 0 0 10px #777;
+    box-shadow: 0 0 10px #777;	
 }
 
 div#header {
 	overflow:hidden;
-    width:930px; 
-    border:0px solid #ccc;
+    width:950px; 
     margin:0 auto;
+    border:0px solid #fff;
 }
-
+    
     div#header a.main-menuitem {
         height:20px;
         font-size:1.1em;
@@ -128,51 +133,82 @@ div#header {
 div#sidebar {
 	float:left;
 	padding:0;
-	width:180px;
+	width:190px;
 	border:0px solid #ccc;
 	margin-right:10px;
-	min-height: 120px;
+	height:auto !important;
+	margin:0 auto;
+	min-height:570px;
 	margin-top:30px;
+	background:#1F1F1F;
 }
-    div#sidebar li .side-menu-item {
-        display:block;
-        padding:5px 0px 10px 10px;
-        background:#eaeaea;
-        border:1px solid #d7d7d7;
-        height:20px;
-        /*-moz-border-radius-topright:5px; 
-        -moz-border-radius-bottomright:5px;
-        -webkit-border-top-right-radius:5px;
-        -webkit-border-bottom-right-radius:5px;*/
-        -moz-border-radius:5px;
-        -webkit-border-radius:5px;
-        margin-bottom:10px;
-        overflow:hidden;
+    div#sidebar a.menuitems {
+    	color:#d7d7d7!important;
+    	display:block;
+    	padding:5px;
+    	
     }
     
-    div#sidebar li .side-menu-item-text {
-        color:#453A31;  
-        display:block;
-    }
+	div#sidebar a.iphone {
+	    padding:0px!important;	    
+        background: url('../img/ikon_iphone.png') no-repeat transparent;
+        width:52px;
+        height:27px;
+        display:inline-block;	    
+	}
+	div#sidebar a.pc {
+	    padding:0px!important;	    
+        background: url('../img/ikon_pc.png') no-repeat transparent;
+        width:52px;
+        height:27px;
+        display:inline-block;	    
+	}
+	div#sidebar a.psp {
+	    padding:0px!important;	    
+        background: url('../img/ikon_psp.png') no-repeat transparent;
+        width:56px;
+        height:27px;
+        display:inline-block;	    
+	}    
     
-    div#sidebar li .side-menu-item:hover,  div#sidebar li .side-menu-item-text:hover{
-        background:#453A31;
-        color:#fefefe!important;
+    div#sidebar a.menuitems:hover {
+        background:#fefefe!important;
+        color:#151515!important;
         text-decoration:none;
     }
     
-    div#sidebar .selected-side-menu {
-        background:#453a31!important;
-        color:#fff!important;
-    }
-			
+    div#sidebar a.game-category {
+    	color:#d7d7d7!important;
 
+    }
+    
+    div#sidebar a.game-category:hover {
+        color:#fefefe!important;
+    }
+    
+    div#sidebar .sidebar-title {
+        display:block;
+        text-align:center;
+        font-size:1.2em;
+        color:#fff;
+        font-weight:bold;
+        margin:5px 0px 10px 0px;
+    }
+    
 div#content {
 	float:left;
 	padding:10px;
-	width:640px;
+	padding-right:0px;
+    padding-top:0px;
+	width:750px;
 	border:0px solid #ccc;	
-	margin-top:20px;
+	background:#1F1F1F;
+	color:#fefefe!important;
+	height:560px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+    /*margin-top:30px;*/
+  
 }
 
     div#content fieldset {
@@ -193,40 +229,6 @@ div#content {
         vertical-align:top;
     }   
     
-    div#content input[type="text"], div#content input[type="password"], 
-    div#content input[type="file"],
-    div#content textarea,
-    div#content select {
-        padding:5px;
-        border:1px solid #ccc;
-    }
-    
-    div#content input[type="text"]:hover, div#content input[type="password"]:hover, 
-    div#content input[type="text"]:focus, div#content input[type="password"]:focus, 
-    div#content textarea:focus, div#content textarea:focus, 
-    div#content select:focus, div#content select:focus {
-        border:1px solid #7F635F;
-    } 
-    
-    form {
-        width:680px;
-    }
-       
-    form input[type=submit] {border:0px; background: #222 url(../img/alert-overlay.png) repeat-x; display: inline-block;padding: 5px 10px 6px;color: #fff;text-decoration: none;font-weight: bold;line-height: 1;-moz-border-radius: 5px;-webkit-border-radius: 5px;-moz-box-shadow: 0 1px 3px #999;-webkit-box-shadow: 0 1px 3px #999;text-shadow: 0 -1px 1px #222;border-bottom: 1px solid #222;position: relative;cursor: pointer;font-size: 14px;padding: 6px 12px 7px;}
-    form input[type=submit]:hover { background-color: #111; color: #fff; }
-    form input[type=submit]:active { top: 1px; }
-    
-    form p {
-        margin-top:10px;
-        overflow:hidden;
-    }
-
-    .file-upload {
-        /*position:relative;
-        left:210px;
-        top:-28px;*/
-    }
-    
     .error {
         border:1px solid red!important;
     }
@@ -234,287 +236,71 @@ div#content {
         color:red!important;
     }
     
-		
-	.add-icon {
-	    height:20px;
-	    display:inline-block;
-	    background: url(../img/icons.png) no-repeat scroll 0 0 transparent;
-	    padding-left:25px;
-	    font-size:12px;
-	}
-	div#content .delete-icon {
-	    height:20px;
-	    display:inline-block;
-	    background: url(../img/icons.png) no-repeat scroll 0 -100px transparent;
-	    padding-left:25px;
-	    font-size:12px;
-	}
-	
-	div#sidebar .delete-icon {
-	    height:20px;
-	    display:inline-block;
-	    background: url(../img/icons.png) no-repeat scroll 0 -100px transparent;
-	    padding-left:20px;
-	    font-size:12px;
-	    position:relative;
-	    top:-20px;
-	}
-
-	div#content .view-icon {
-	    height:20px;
-	    display:inline-block;
-	    background: url(../img/icons.png) no-repeat scroll 0 -150px transparent;
-	    padding-left:25px;
-	    font-size:12px;
-	}	
-
-	div#sidebar .view-icon {
-	    height:20px;
-	    display:inline-block;
-	    background: url(../img/icons.png) no-repeat scroll 0 -150px transparent;
-	    padding-left:20px;
-	    font-size:12px;
-	    position:relative;
-	    top:-20px;
-	}	
-
-	
-	div#content .edit-icon {
-        padding-top:2px;
-        padding-right:20px;
-        background:url('../img/icon-edit.gif') no-repeat scroll right -36px transparent;
-        display:inline-block;
-        height:18px;
+    .a-page, .a-game {
+        float:left;
+        overflow:hidden;
+        border:0px solid #ccc;
+        width:740px;
+        margin-bottom:10px;
     }
-
-	
-    div#content .buzz-list, .settings-list, .pages-list {
-        width:640px;
-        border:0px solid #ddd;
-        padding:0px;
-        margin-top:10px;
-    }
-    div#content .buzz, .settings-item, .page {
-        border:1px solid #ddd;
-        -moz-border-radius:3px;
-        -webkit-border-radius:3px;
-        padding:5px;
-        margin-bottom:15px;
-        -moz-box-shadow: 3px 3px 5px #777;
-        -webkit-box-shadow: 3px 3px 5px #777;
-        box-shadow: 3px 3px 5px #777;         
-    }
-    
-    div#content .buzz-title, .settings-item-name, .page-title {
-        font-size:14px;
-        font-weight:bold;
-        padding: 5px;
-        background:#efefef;
-        border-bottom:1px solid #ddd;
-    }
-
-    div#content .buzz-content, .settings-item-value, .page-content-short, .page-content {
-        color:#777;
-    }
-    
-    div#content .partners-list, .menus-list, .types-list, .games-list {
+    .a-page .page-images, .a-page .page-videos, .a-game .game-videos, .a-game .game-images {
         float:left;
         width:680px;
         margin-top:10px;
     }
     
-    div#content .partner, .menu, .type, .game {
-        float:left; 
-        width: 175px;
-        /*border:3px dotted #453A31;*/
-        margin-left:20px;
-        margin-bottom:20px;
-        padding:10px 10px 0 10px;
-        background:#f3f3f3;
-        -moz-border-radius:8px;
-        -webkit-border-radius:8px; 
-        -moz-box-shadow: 0 0 0.5em #777;
-        -webkit-box-shadow: 0 0 0.5em #777;
-        box-shadow: 0 0 0.5em #777;                  
-        cursor: move;
+    .a-page .page-content, .a-game .game-description {
+        float:left;
+        padding:10px;
+        width:720px;
+        display:inline-block;
     }
     
-    div#content .partner {
-        cursor:text!important;
-    }
-    
-    div#content .game-type, div#content .game-name, div#content .partner-name {
-        font-weight:bold;
-        text-align:center;
-        color:#554444;
+    .game-img-wrapper, .page-img-wrapper {
+        border: 2px solid #ddd;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;	    
+        padding:2px;
+        margin-left:10px;
+        /*opacity:0.8;*/
+        width:150px;
+        height:128px;
+        display:inline-block!important;
+        float:left;
         margin-bottom:10px;
+        background:#eaeaea;    
     }
     
-    div#content .menu, .type {
-        float:none;
-        height: 30px;
+    .video {
+        width: 480px; display:inline-block; border:0px solid #ccc; overflow:hidden; margin:10px 0!important;
+        background: #eaeaea;
+        padding-left:5px;
+        padding-top:10px!important;
+    }
+
+    .logo {
+        width:200px;
+        display:inline-block;
+        float:left;
+        border:0px solid #ccc;
+        
+    }
+    .appstore-link {
+        display:block;
+        width:172px;
+        height:60px;
+        background: url(../img/appstore.gif) no-repeat transparent;
+        float:right;
+        border:0px solid #ccc;
     }
     
-    .uploaded-files, .uploaded-videos {
-        margin-left:90px!important;
-        margin-bottom:10px;
-        padding:0px;
+    .game-inner-nav {
         float:left;
         display:block;
-        width:590px;
-        /*border:1px solid #ccc;*/
-        overflow:hidden;
+        width:100%;
+        border:0px solid #ccc;
+        margin-top:20px;
     }
-    
-    .uploaded-videos{
-        padding-left:10px;
-    }
-    
-	.uploaded-files .img-wrapper,  .partners-list img, .games-list img, .page-img-wrapper img {
-	    border: 2px solid #ddd;
-	    -moz-border-radius:3px;
-	    -webkit-border-radius:3px;	    
-	    padding:2px;
-	    margin-left:10px;
-	    /*opacity:0.8;*/
-	    width:150px;
-	    height:128px;
-	    display:inline-block!important;
-	    float:left;
-	    margin-bottom:10px;
-	    background:#eaeaea;
-	}
-	
-	.add-video, .view-video, .delete-video {
-	    width:20px; height:20px;margin:0px; padding:0px!important; position:relative; top:5px;
-	}
-	
-	.video-embed {
-	    padding:10px 0;
-	}
-	
-	.videos-wrapper {
-	    display:inline-block; width: 500px; overflow:hidden; border:0px solid #ccc;
-	}
-    
-	.video {
-	    width: 480px; display:inline-block; border:0px solid #ccc; overflow:hidden; margin:10px 0!important;
-	    background: #eaeaea;
-	    padding-left:5px;
-	    padding-top:10px!important;
-	}
-	
-	.delete-existing-video-wrapper {
-	    width:30px;
-	    height:25px;
-	    display:inline-block;
-	    background: #f1f1f1;
-	    -moz-border-radius-topright:3px;
-	    -moz-border-radius-bottomright:3px;
-        -webkit-border-bottom-right-radius:3px;
-        -webkit-border-top-right-radius:3px;	    
-	    float:right;
-	    position:relative;
-	    left:-10px;
-	    padding-right:3px;
-	    border:1px solid #d7d7d7;
-	    border-left:0px;
-	}
-		
-	.uploaded-files img {
-	    display:block;
-	}
-	
-	.uploaded-files .delete-img, .videos-wrapper .delete-existing-video {
-	    padding:0px!important;
-	    float:right;
-        background: url('../img/sprite-icons.png') no-repeat scroll -128px 0 transparent;
-        width:13px;
-        height:13px;
-        display:inline-block;
-	}
-	
-	.show-all-page-content {
-	    padding:0px!important;
-        background: url('../img/sprite-icons.png') no-repeat scroll 0px -16px transparent;
-        width:13px;
-        height:13px;
-        display:inline-block;
-        position:relative;
-        top:1px;
-	    
-	}
-	.hide-all-page-content {
-	    padding:0px!important;	    
-        background: url('../img/sprite-icons.png') no-repeat scroll -16px -16px transparent;
-        width:13px;
-        height:13px;
-        display:inline-block;
-        position:relative;
-        top:1px;
-	}
-	
-	.arrow-right {
-	    padding:0px!important;	    
-        background: url('../img/arrow_gray.png') no-repeat transparent;
-        width:13px;
-        height:13px;
-        display:inline-block;
-        position:relative;
-        top:3px;
-        left:3px;
-	}
-	
-	.buzz-type-iphone {
-	    padding:0px!important;	    
-        background: url('../img/ikon_iphone.png') no-repeat transparent;
-        width:52px;
-        height:27px;
-        display:inline-block;	    
-	}
-	.buzz-type-pc {
-	    padding:0px!important;	    
-        background: url('../img/ikon_pc.png') no-repeat transparent;
-        width:52px;
-        height:27px;
-        display:inline-block;	    
-	}
-	.buzz-type-psp {
-	    padding:0px!important;	    
-        background: url('../img/ikon_psp.png') no-repeat transparent;
-        width:52px;
-        height:27px;
-        display:inline-block;	    
-	}
-	
-.sortable-state-highlight {
-    border:3px dashed #eaeaea;
-    height: 40px; line-height: 1.2em;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    margin-bottom:10px;
-}
-
-.sortable-state-highlight-game {
-    border:3px dashed #eaeaea;
-    height: 230px; 
-    width:195px;
-    margin-left:20px;
-    margin-bottom:20px;    
-    display:inline-block;
-    line-height: 1.2em;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-}
-
-
-.ui-datepicker-trigger {
-    position:relative;
-    top:3px;
-    left:3px;
-    cursor:pointer;
-    margin-right:5px;
-}
     
 .right {
     float:right!important;
@@ -541,47 +327,86 @@ div#errors {
     width:680px;
 }
 
-.info {
-    font-weight:normal;
-    font-style:italic;
-    font-size:10px!important;
-    color:#999;
-    margin-left:5px;
-    /*background:#FFFF88;*/
+div#carousel {
+    width:950px!important;
+    height:50px;
+    background:#1F1F1F;
+    padding-top:8px;
+    border-top:2px solid #888;
+    margin-top:-14px;
+    display:block;
+}
+.released-games {
+    position:relative;
+    top:-20px;
+    left:10px;
+    overflow:hidden;
+    display:inline;
+    color:#888;
+    font-weight:bold;
+    font-size:11px;
+    background:transparent;
+    /*background:#fff;*/
+}
+div #carousel{
+    float:left;
+    border:0px solid #fff;
+    width:950px;
+    position:relative;
+    overflow:hidden;
+    
+}
+div#carousel #scroller {
+    float:left;
+    width:5000px;
+    overflow:hidden;
+    margin-top: 5px;
+}
+div#carousel li {
+    padding:0 1px;
+    float:left;
 }
 
-.editable-hover {
-    background:#ffff99!important;
+div#carousel li a {
+    display:block;
+    width:168px;
+    height:35px ;
 }
 
 div#footer {
-    border:0px solid #ccc;
-    background:#453A31;
+    float:left;
+    border-top:10px solid #757575;
+    border-bottom:10px solid #CACACA;
+    /*background:#453A31;*/
     color:#f5f5f5;
 	font-size:11px;
-	margin-top:30px;
-	margin-bottom:0px !important;
-	padding:20px 0 20px 0;
 	text-align:center;
 	width:100%;
+    background: url('../img/footer_bg.png') repeat-x; 
+    height: 103px; 
+    margin-bottom:0px!important;
+    padding:0px!important;
 }
 
-/* PUBLIC STUFF */
-.a-page, .a-game {
-    float:left;
+.cols {
+    float:center;
+    width: 450px;
+    margin:0 auto!important;
+    border:0px solid #000;
     overflow:hidden;
-    border:0px solid #ccc;
-    width:680px;
-    margin-bottom:10px;
-}
-.a-page .page-images, .a-page .page-videos, .a-game .game-videos, .a-game .game-images {
-    float:left;
-    width:680px;
-    margin-top:10px;
 }
 
-.a-page .page-content, .a-game .game-description {
+.col-1 {
+    border:0px solid #000;
     float:left;
-    padding:10px;
-    width:680px;
 }
+
+.col-2 {
+    float:left;
+    border:0px solid #000;
+    vertical-align:top;
+    text-align:left;
+    padding-left:10px;
+    color: #FFF; font-family: Arial, Tahoma, sans-serif; font-size: 11px;
+}
+	

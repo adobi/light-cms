@@ -9,7 +9,7 @@
 
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-		<link rel="stylesheet" href="<?= BASE_URL ?>css/page.css?v=<?= time(); ?>" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>css/page_admin.css?v=<?= time(); ?>" />
 		<link rel="stylesheet" href="<?= BASE_URL ?>css/jquery.wysiwyg.css" />
 		<link rel="stylesheet" href="<?= BASE_URL ?>css/uploadify.css" />
 		<link rel="stylesheet" href="<?= BASE_URL ?>js/tipsy/stylesheets/tipsy.css" />

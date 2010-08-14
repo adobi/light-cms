@@ -1,8 +1,9 @@
 
 <?php if ($displaySidebar) : ?>
+    <span class = "sidebar-title"><?= $action ? $action : '' ?> games</span>
     <?php foreach ($typesList as $tl) : ?>
     
-        <a href="<?= BASE_URL . $controller .  '/' . $tl['url'] ?>"><?= $tl['name'] ?></a> |
+        <a class = "game-category <?= $tl['url'] ?>" href="<?= BASE_URL . $controller .  '/' . $tl['url'] ?>"></a>
     
     <?php endforeach; ?>
     
@@ -12,7 +13,7 @@
             
             <?php foreach ($gamesList as $g) : ?>
                 <li>
-                    <a href="<?= BASE_URL . $controller . '/' . $g['type_name'] . '/' . $g['url'] ?>"><?= $g['name'] ?></a>
+                    <a class = "menuitems" href="<?= BASE_URL . $controller . '/' . $g['type_name'] . '/' . $g['url'] ?>"><?= $g['name'] ?></a>
                 </li>
             <?php endforeach; ?>
             

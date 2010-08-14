@@ -4,14 +4,14 @@
 
         <div class = "a-game">
             
-            <h1><?= $currentGame['name'] ?> (<?= $currentGame['released'] ?>)</h1> 
+            <h1><?= $currentGame['name'] ?> <span class = "released">(<?= $currentGame['released'] ?>)</span></h1> 
             <div class = "logo">
                 <img src = "<?= BASE_URL . FOTO_UPLOAD_DIR ?>games/<?= THUMB_UPLOAD_DIR . $currentGame['logo']?>"  />
             </div>
-            <div class = "game-description">
-                <?= htmlspecialchars_decode($currentGame['description']) ?>
+            <a href = "<?= $currentGame['website'] ?>" class = "appstore-link" target = "_blank"></a>
+            <div class = "game-inner-nav">
+                <a href="javascript:void(0);" class = "show-images">képek</a> | <a href="javascript:void(0);" class = "show-videos">videos</a>
             </div>
-            <a href="javascript:void(0);" class = "show-images">képek</a> | <a href="javascript:void(0);" class = "show-videos">videos</a>
             
             <div class = "game-images hidden">
                 <?php if ($currentGameScreenshots) : ?>
@@ -43,6 +43,9 @@
                     <em>(nincs video a bejegyzéshez)</em>
                 <?php endif; ?>   
             </div>            
+            <div class = "game-description">
+                <?= htmlspecialchars_decode($currentGame['description']) ?>
+            </div>
         </div>
             
     <?php endif; ?>
@@ -56,16 +59,16 @@
         		'titlePosition' 	: 'over'
             }); 
             
-            $('.show-images').bind('click', function() {
+            $('#content').delegate('.show-images', 'click', function() {
                 
-                $(this).nextAll('.game-images').toggle();
-                
+                $(this).parents('.a-game').find('.game-images').toggle();
+                $('#content').jScrollPane({showArrows:false}); 
                 return false;    
             });         
-            $('.show-videos').bind('click', function() {
+            $('#content').delegate('.show-videos', 'click', function() {
                 
-                $(this).nextAll('.game-videos').toggle();
-                
+                $(this).parents('.a-game').find('.game-videos').toggle();
+                //$('#content').jScrollPane({showArrows:false}); 
                 return false;    
             });         
         });

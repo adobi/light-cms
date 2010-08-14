@@ -94,7 +94,7 @@
         if ($controller === 'login') {
             
             require_once 'controllers/login.php';
-        
+            
             $_template = 'login/index.php';
         
         } else {
@@ -110,8 +110,13 @@
             }
         }
         
+        if ($controller === 'login') {
         
-        require_once 'views/_layout.php';
+            require_once 'views/_layout_admin.php';
+        } else {
+        
+            require_once 'views/_layout.php';
+        }
     }
 
 ?>
